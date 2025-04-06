@@ -208,28 +208,6 @@
 
 ## ⚒ 서비스 기능 소개
 
-### BIDD (기업)
-
-**1️⃣ 기업 신청**
-
-기업 회원은 상품을 등록하기 위해 기업 신청을 할 수 있다.
-
-![기업신청](https://github.com/gnoesnooj/ddib/assets/91658692/b5fdff5e-0109-475c-af87-013d480df80e)
-
-
-**2️⃣ 상품 등록**
-
-기업 회원은 타임딜 이벤트 진행을 원하는 날짜 및 시간대를 선택해 상품을 등록할 수 있다.
-
-![상품_등록](https://github.com/gnoesnooj/ddib/assets/91658692/5f6685eb-6dcc-4bbe-b40a-c62618e9f132)
-
-
-**3️⃣ 판매내역 조회**
-
-기업회원은 등록한 상품에 대한 판매내역을 조회할 수 있다.
-
-![판매내역_조회](https://github.com/gnoesnooj/ddib/assets/91658692/8385b73b-dc75-4292-9759-beda679ed861)
-
 
 ### **DDIB (소비자)**
 
@@ -237,7 +215,7 @@
 
 사용자는 오늘의 타임딜과 주간 타임딜, 카테고리별 타임딜 이벤트를 조회할 수 있다.
 
-![image](https://github.com/gnoesnooj/ddib/assets/91658692/ab13c684-8f0a-4cc5-b864-4e6925236bd7)
+![image](https://github.com/tpwls101/DDIB/assets/97137124/78dc587c-8c43-4d90-bb89-6cc04b2ffc02)
 
 
 **2️⃣ 검색**
@@ -309,6 +287,28 @@
 ![image](https://github.com/gnoesnooj/ddib/assets/91658692/789dcdd6-cb0f-4a2b-b153-dc9e1bb9e410)
 
 
+
+### BIDD (기업)
+
+**1️⃣ 기업 신청**
+
+기업 회원은 상품을 등록하기 위해 기업 신청을 할 수 있다.
+
+![기업신청](https://github.com/gnoesnooj/ddib/assets/91658692/b5fdff5e-0109-475c-af87-013d480df80e)
+
+
+**2️⃣ 상품 등록**
+
+기업 회원은 타임딜 이벤트 진행을 원하는 날짜 및 시간대를 선택해 상품을 등록할 수 있다.
+
+![상품_등록](https://github.com/gnoesnooj/ddib/assets/91658692/5f6685eb-6dcc-4bbe-b40a-c62618e9f132)
+
+
+**3️⃣ 판매내역 조회**
+
+기업회원은 등록한 상품에 대한 판매내역을 조회할 수 있다.
+
+![판매내역_조회](https://github.com/gnoesnooj/ddib/assets/91658692/8385b73b-dc75-4292-9759-beda679ed861)
 
 <br>
 
