@@ -104,7 +104,7 @@
      <b>[결제 서버 개발]</b><br>- 카카오페이 결제 및 주문 관련 API 구현<br>- 카카오페이 결제 시스템 비동기 처리 및 테스트 코드를 통한 성능 향상 확인<br>- Redisson을 활용한 재고 동시성 제어 구현 및 테스트 코드를 통한 적용 전후 테스트<br><br><b>[부하테스트]</b><br>- JMeter를 사용하여 테스트 시나리오 작성 및 부하테스트 진행<br>
     </td>
     <td>
-      <b>[프론트엔드 설계 및 개발]</b><br>- Next.js를 이용하여 SSL방식 사용<br>- Recoil을 사용하여 Client에서의 데이터를 관리<br>- react-query를 사용하여 Server에서의 데이터를 관리하고 데이터의 변경이 없으면 호출없이 데이터를 사용하도록 구현<br>
+      <b>[DDIB 디자인 및 개발]</b><br>- Next.js 미들웨어를 이용한 핫딜 로직처리<br>- Intercept router로 비정상적인 URL로의 접근 방지<br>- react-query를 사용하여 ServerData 캐싱 및 관리<br><br><b>[BIDD 디자인 및 개발]</b><br>- Zusatand로 상품 등록 정보 전역적으로 상태관리<br>
     </td>
     <td>
       <b>[대기열 시스템 개발]</b><br>- Spring Webflux를 이용한 대기열 서버 구축<br>- Reactive Redis를 통한 사용자
@@ -208,28 +208,6 @@
 
 ## ⚒ 서비스 기능 소개
 
-### BIDD (기업)
-
-**1️⃣ 기업 신청**
-
-기업 회원은 상품을 등록하기 위해 기업 신청을 할 수 있다.
-
-![기업신청](https://github.com/gnoesnooj/ddib/assets/91658692/b5fdff5e-0109-475c-af87-013d480df80e)
-
-
-**2️⃣ 상품 등록**
-
-기업 회원은 타임딜 이벤트 진행을 원하는 날짜 및 시간대를 선택해 상품을 등록할 수 있다.
-
-![상품_등록](https://github.com/gnoesnooj/ddib/assets/91658692/5f6685eb-6dcc-4bbe-b40a-c62618e9f132)
-
-
-**3️⃣ 판매내역 조회**
-
-기업회원은 등록한 상품에 대한 판매내역을 조회할 수 있다.
-
-![판매내역_조회](https://github.com/gnoesnooj/ddib/assets/91658692/8385b73b-dc75-4292-9759-beda679ed861)
-
 
 ### **DDIB (소비자)**
 
@@ -237,7 +215,7 @@
 
 사용자는 오늘의 타임딜과 주간 타임딜, 카테고리별 타임딜 이벤트를 조회할 수 있다.
 
-![image](https://github.com/gnoesnooj/ddib/assets/91658692/ab13c684-8f0a-4cc5-b864-4e6925236bd7)
+![image](https://github.com/tpwls101/DDIB/assets/97137124/78dc587c-8c43-4d90-bb89-6cc04b2ffc02)
 
 
 **2️⃣ 검색**
@@ -309,6 +287,28 @@
 ![image](https://github.com/gnoesnooj/ddib/assets/91658692/789dcdd6-cb0f-4a2b-b153-dc9e1bb9e410)
 
 
+
+### BIDD (기업)
+
+**1️⃣ 기업 신청**
+
+기업 회원은 상품을 등록하기 위해 기업 신청을 할 수 있다.
+
+![기업신청](https://github.com/gnoesnooj/ddib/assets/91658692/b5fdff5e-0109-475c-af87-013d480df80e)
+
+
+**2️⃣ 상품 등록**
+
+기업 회원은 타임딜 이벤트 진행을 원하는 날짜 및 시간대를 선택해 상품을 등록할 수 있다.
+
+![상품_등록](https://github.com/gnoesnooj/ddib/assets/91658692/5f6685eb-6dcc-4bbe-b40a-c62618e9f132)
+
+
+**3️⃣ 판매내역 조회**
+
+기업회원은 등록한 상품에 대한 판매내역을 조회할 수 있다.
+
+![판매내역_조회](https://github.com/gnoesnooj/ddib/assets/91658692/8385b73b-dc75-4292-9759-beda679ed861)
 
 <br>
 
