@@ -1,71 +1,35 @@
-// body {
-//   height: 100vh;
-//   display: grid;
-//   place-items: center;
-//   overflow: hidden;
-// }
-
-.main {
+.container {
   position: relative;
-  width: 100%;
-  height: 100vh;
+  height: 60vh;
+  :global(.swiper-slide) {
+    opacity: 0 !important;
+    transition: opacity 0.5s;
+  }
+
+  :global(.swiper-slide.swiper-slide-active) {
+    opacity: 1 !important;
+  }
 }
 
-.title {
-  font-size: 4vw;
-  position: absolute;
-  top: 10%;
-  left: 50%;
-  transform: translateX(-50%);
-  font-family: "Oooh Baby";
+.swiperItem {
+  margin: 50px 40px;
+  position: relative;
 }
 
-.time {
-  z-index: 3;
-  position: absolute;
-  top: -10%;
-  left: 50%;
-  width: 100%;
-  padding: 0 1vw;
-  font-size: 1.5vw;
-  font-family: "Oooh Baby";
-  color: var(--scarlet);
-  transform: translateX(-50%);
-  font-weight: bold;
-}
-
-.itemArea {
+.imgContainer {
+  height: 60vh;
   display: flex;
   align-items: center;
-  height: 100%;
-  > div > div {
-    align-items: center;
-  }
-}
-
-.container {
-  margin: 3vw 2vw 0;
-}
-
-.active {
-  .wrapper {
-    width: 100%;
-    height: 55vh;
-    box-shadow: 0 0 10px 2px rgb(232, 232, 232);
-  }
 }
 
 .wrapper {
   position: relative;
-  width: 90%;
-  height: 45vh;
-  box-shadow: 0 0 10px 2px rgb(232, 232, 232);
-
+  width: 24vw;
+  height: 50vh;
+  border-radius: 20px;
+  box-shadow: 10px 10px 6px -3px rgba(0, 0, 0, 0.103);
   img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    transform: translate(50, 50);
+    border-radius: 20px;
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -82,21 +46,218 @@
   }
 }
 
+.backGroundLight {
+  padding: 5px;
+  position: absolute;
+  right: 15px;
+  top: 0;
+  width: 55vw;
+  height: 60vh;
+  border-radius: 10px;
+}
+
+@keyframes animated_bg {
+  0% {
+    background-position: 10% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 10% 50%;
+  }
+}
+
+.backGroundColor {
+  height: 100%;
+  background-color: #fffffffd;
+  padding: 4vh 5vw 2vh 12vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  border-radius: 20px;
+  &::after {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(90deg, var(--scarlet), rgb(250, 217, 217));
+    background-size: 200% 200%;
+    transform: scale(0.95);
+    filter: blur(1.4vw);
+    z-index: -1;
+    animation: animated_bg 2s ease infinite;
+  }
+}
+
+// @keyframes huerotator {
+//   0% {
+//     -webkit-filter: hue-rotate(0deg);
+//     filter: hue-rotate(0deg);
+//   }
+
+//   100% {
+//     -webkit-filter: hue-rotate(360deg);
+//     filter: hue-rotate(360deg);
+//   }
+// }
+
+// .stock {
+//   position: absolute;
+//   bottom: 0;
+//   padding: 0.5vw;
+//   font-size: 1.5vw;
+//   color: var(--scarlet);
+//   font-weight: bold;
+// }
+
+.active {
+  .eventTime,
+  .name,
+  .priceArea,
+  .timeOne,
+  .timeTwo {
+    animation: reveal 1s cubic-bezier(0.77, 0, 0.175, 1);
+  }
+}
+
+@keyframes reveal {
+  0% {
+    transform: translateY(10%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.eventTime {
+  background-color: var(--scarlet);
+  // background-image: linear-gradient(147deg, #fe8a39 0%, var(--scarlet) 74%);
+  // background-image: linear-gradient(147deg, #ff9494 0%, var(--scarlet) 74%);
+  width: fit-content;
+  padding: 7px 15px;
+  text-align: center;
+  font-size: 1.1vw;
+  color: white;
+  border-radius: 50px;
+  box-shadow: 0px 0px 10px rgba(252, 56, 56, 0.3);
+  display: flex;
+  gap: 5px;
+}
+
+.name {
+  margin-top: 5px;
+  padding-left: 5px;
+  padding-bottom: 0.2em;
+  font-size: 2.2vw;
+  font-weight: 600;
+  white-space: wrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.2;
+  height: 2.5em;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  //text-shadow: 3px 3px 2px rgba(0, 0, 0, 0.183);
+}
+
+.priceArea {
+  display: flex;
+  align-items: center;
+  gap: 0.5vw;
+  padding-left: 5px;
+  > div:nth-child(1) {
+    font-size: 2vw;
+    color: gray;
+    text-decoration: line-through;
+  }
+  > div:nth-child(2) {
+    font-size: 4.5vw;
+    color: black;
+    font-weight: bold;
+  }
+  > div:nth-child(3) {
+    font-size: 3vw;
+    color: var(--scarlet);
+    font-weight: bold;
+  }
+}
+
+.timeOne,
+.timeTwo,
+.timeThree {
+  color: var(--scarlet);
+  text-align: center;
+  // text-shadow: 0px 0px 5px #ff54547f, 0px 0px 10px #ff54547f,
+  //   0px 0px 20px #ff54547f;
+  // text-shadow: 0 -3px 0 #ff54547f, 0 6px 8px #ff54549d, 0 9px 10px #ff54543f,
+  //   0 30px 10px #ff54544e, 0 15px 10px #ff545457;
+  text-shadow: 0.03em 0.03em #eeeeee, 0.06em 0.06em #ff545457;
+}
+
+.timeOne {
+  font-size: 8vw;
+}
+
+.timeTwo {
+  font-size: 6.9vw;
+}
+
+.timeThree {
+  margin-top: 15px;
+  font-size: 5vw;
+}
+
+.paginationButton {
+  position: absolute;
+  z-index: 22;
+  right: 50px;
+  width: 11px !important;
+  text-align: center;
+  left: auto !important;
+  top: 45% !important;
+
+  :global(.swiper-pagination-bullet) {
+    margin: 8px 0 !important;
+    width: 11px;
+    height: 11px;
+    display: block;
+    border-radius: 10px;
+    background: var(--scarlet);
+    opacity: 0.2;
+    transition: all 0.3s;
+  }
+
+  :global(.swiper-pagination-bullet-active) {
+    opacity: 1;
+    background: var(--scarlet);
+    height: 30px;
+    box-shadow: 0px 0px 20px rgba(252, 56, 56, 0.3);
+  }
+}
+
 .sold {
+  z-index: 10;
   top: 0;
   position: absolute;
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.6);
+  border-radius: 20px;
 }
 
 .soldLogo {
+  z-index: 10;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   color: var(--scarlet);
-  font-size: 4vw;
+  font-size: 6vw;
   font-family: "Oooh Baby";
   font-weight: bold;
   // &::before {
@@ -121,52 +282,14 @@
   // }
 }
 
-.reserve {
-  display: none;
-  position: absolute;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.3);
-}
-
-.reserveLogo {
-  display: none;
-  position: absolute;
-  font-size: 3vw;
-  font-weight: bold;
-  color: white;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-.name {
-  margin-top: 0.5vw;
-  text-align: center;
-  font-size: 1.5vw;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.priceArea {
+.noItem {
   display: flex;
   justify-content: center;
-  gap: 0.5vw;
-  > div:nth-child(1) {
-    font-size: 1vw;
-    color: gray;
-    text-decoration: line-through;
-  }
-  > div:nth-child(2) {
-    font-size: 1.5vw;
-    color: black;
-    font-weight: bold;
-  }
-  > div:nth-child(3) {
-    font-size: 1.5vw;
-    color: var(--scarlet);
-    font-weight: bold;
-  }
+  align-items: center;
+}
+
+.noItemText {
+  font-size: 8vh;
+  color: var(--scarlet);
+  font-family: "Oooh Baby";
 }

@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import styles from "./timeCount.module.scss";
 
 interface Props {
   startTime: string;
@@ -9,10 +8,14 @@ interface Props {
 
 export default function TimeCount({ startTime }: Props) {
   const [targetTime] = useState<Date>(new Date(startTime));
-  const [timeLeft, setTimeLeft] = useState<number>(targetTime.getTime() - new Date().getTime());
+  const [timeLeft, setTimeLeft] = useState<number>(
+    targetTime.getTime() - new Date().getTime()
+  );
 
   useEffect(() => {
     console.log(startTime);
+    console.log(targetTime.getTime());
+    console.log(new Date().getTime());
     const timerID = setInterval(() => {
       const newTimeLeft = targetTime.getTime() - new Date().getTime();
       setTimeLeft(newTimeLeft);
@@ -26,7 +29,9 @@ export default function TimeCount({ startTime }: Props) {
   }, [targetTime]);
 
   const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
-  const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  const hours = Math.floor(
+    (timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+  );
   const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
   const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
 
@@ -36,7 +41,9 @@ export default function TimeCount({ startTime }: Props) {
       {/* <div>{endTime}</div> */}
       <div>
         {days <= 0 ? "" : `${days}:`}
-        {hours < 0 ? "00" : hours < 10 ? `0${hours}` : `${hours}`}:{minutes < 0 ? "00" : minutes < 10 ? `0${minutes}` : `${minutes}`}:{seconds < 0 ? "00" : seconds < 10 ? `0${seconds}` : `${seconds}`}
+        {hours < 0 ? "00" : hours < 10 ? `0${hours}` : `${hours}`}:
+        {minutes < 0 ? "00" : minutes < 10 ? `0${minutes}` : `${minutes}`}:
+        {seconds < 0 ? "00" : seconds < 10 ? `0${seconds}` : `${seconds}`}
       </div>
     </>
   );

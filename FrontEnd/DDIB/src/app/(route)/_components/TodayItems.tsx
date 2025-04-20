@@ -4,18 +4,19 @@ import styles from "./todayItem.module.scss";
 import { Product } from "@/app/_types/types";
 import { useState, useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { A11y, Autoplay } from "swiper/modules";
+import { A11y, Autoplay, EffectCoverflow } from "swiper/modules";
 import "swiper/swiper-bundle.css";
 import Link from "next/link";
 import Image from "next/image";
-import cx from "classnames";
 import { getDiscount } from "@/app/_utils/commonFunction";
+import fog from "../../../../public/images/fogg2.png";
 
 interface Props {
   todayList: Product[];
+  bgColor: string;
 }
 
-export default function TodayItems({ todayList }: Props) {
+export default function TodayItems({ todayList, bgColor }: Props) {
   const [items, setItems] = useState(todayList);
 
   useEffect(() => {
@@ -38,31 +39,39 @@ export default function TodayItems({ todayList }: Props) {
     };
   }, []);
 
+  useEffect(() => {
+    console.log(bgColor + "입니다.");
+  }, [bgColor]);
+
   return (
-    <div className={styles.main}>
+    <div
+      className={styles.main}
+      style={{
+        background: bgColor,
+      }}
+    >
       <div className={styles.title}>Today&#039;s deal</div>
       <div className={styles.area}>
         <Swiper
           initialSlide={0}
-          modules={[A11y, Autoplay]}
+          modules={[A11y, Autoplay, EffectCoverflow]}
           effect="coverflow"
           slidesPerView={3}
-          autoplay={{ delay: 2000, disableOnInteraction: false }}
+          //autoplay={{ delay: 2000, disableOnInteraction: false }}
+          autoplay={false}
           centeredSlides={true}
           slideToClickedSlide={true}
           loop={true}
           coverflowEffect={{
-            rotate: 0,
-            stretch: 0,
-            depth: 10,
-            modifier: 1,
+            rotate: 30,
+            depth: 50,
             slideShadows: false,
           }}
           slideActiveClass={styles.active}
         >
           {items.map((item, index) => {
             return (
-              <SwiperSlide key={index} className={styles.swiperItem}>
+              <SwiperSlide key={index}>
                 <Link href={`/products/${item.productId}`}>
                   <div className={styles.container}>
                     <div className={styles.wrapper}>
@@ -91,11 +100,12 @@ export default function TodayItems({ todayList }: Props) {
                     </div>
                     <div className={styles.name}>{item.name}</div>
                     <div className={styles.priceArea}>
-                      <div>{item.price.toLocaleString("ko-KR")}</div>
+                      <div>{item.price.toLocaleString("ko-KR")}원</div>
                       <div>
                         {getDiscount(item.price, item.discount).toLocaleString(
                           "ko-KR"
                         )}
+                        원
                       </div>
                       <div>{item.discount}%</div>
                     </div>
@@ -105,6 +115,11 @@ export default function TodayItems({ todayList }: Props) {
             );
           })}
         </Swiper>
+      </div>
+      <div className={styles.fogContainer}>
+        <Image src={fog} alt="fog1.png" fill sizes=""></Image>
+        <Image src={fog} alt="fog1.png" fill sizes=""></Image>
+        <Image src={fog} alt="fog1.png" fill sizes=""></Image>
       </div>
     </div>
   );

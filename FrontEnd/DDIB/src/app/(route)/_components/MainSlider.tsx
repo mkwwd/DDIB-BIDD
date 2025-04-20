@@ -5,13 +5,15 @@ import React, { useState, useRef, useEffect } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { useQuery } from "@tanstack/react-query";
 import { Product } from "@/app/_types/types";
 import TimeCount from "@/app/_components/TimeCount";
 import { getDiscount } from "@/app/_utils/commonFunction";
-
 import Link from "next/link";
 import Image from "next/image";
+import { PiTimerBold } from "react-icons/pi";
+import ColorThief from "colorthief";
+import tinycolor from "tinycolor2";
+import fog from "../../../../public/images/fogg2.png";
 
 type SlideshowItem = {
   id: number;
@@ -19,110 +21,39 @@ type SlideshowItem = {
   title: string;
 };
 
-const slideshowItems: Product[] = [
-  {
-    productId: 23,
-    name: "나이키 조던",
-    totalStock: 1000,
-    stock: 1000,
-    eventStartDate: "2024-05-17T14:00:00",
-    eventEndDate: "2024-05-17T16:00:00",
-    eventStartTime: "14",
-    eventEndTime: "16",
-    price: 10000,
-    discount: 10.0,
-    thumbnailImage: "https://iandwe.s3.ap-northeast-2.amazonaws.com/thumbnail/OQcNkT4d",
-    category: "Fashion",
-    details: [
-      {
-        productDetailId: 23,
-        imageUrl: "https://iandwe.s3.ap-northeast-2.amazonaws.com/details/hL5SqOBk",
-      },
-    ],
-    likeCount: 1,
-    sellerId: 1,
-    sellerEmail: "sarah@dunst.com",
-    companyName: "joonseong",
-    businessNumber: 101010101,
-    ceoName: "Tom",
-    ceoEmail: "306yyy@naver.com",
-    ceoPhone: "1043200933",
-    over: false,
-  },
-  {
-    productId: 23,
-    name: "name3",
-    totalStock: 1000,
-    stock: 1000,
-    eventStartDate: "2024-05-17T17:00:00",
-    eventEndDate: "2024-05-17T18:00:00",
-    eventStartTime: "17",
-    eventEndTime: "18",
-    price: 10000,
-    discount: 20.0,
-    thumbnailImage: "https://iandwe.s3.ap-northeast-2.amazonaws.com/thumbnail/egqHlHZG",
-    category: "Fashion",
-    details: [
-      {
-        productDetailId: 23,
-        imageUrl: "https://iandwe.s3.ap-northeast-2.amazonaws.com/details/hL5SqOBk",
-      },
-    ],
-    likeCount: 1,
-    sellerId: 1,
-    sellerEmail: "sarah@dunst.com",
-    companyName: "joonseong",
-    businessNumber: 101010101,
-    ceoName: "Tom",
-    ceoEmail: "306yyy@naver.com",
-    ceoPhone: "1043200933",
-    over: false,
-  },
-  {
-    productId: 23,
-    name: "name3",
-    totalStock: 1000,
-    stock: 1000,
-    eventStartDate: "2024-05-17T19:00:00",
-    eventEndDate: "2024-05-17T20:00:00",
-    eventStartTime: "19",
-    eventEndTime: "20",
-    price: 10000,
-    discount: 15.0,
-    thumbnailImage: "https://iandwe.s3.ap-northeast-2.amazonaws.com/thumbnail/egqHlHZG",
-    category: "Fashion",
-    details: [
-      {
-        productDetailId: 23,
-        imageUrl: "https://iandwe.s3.ap-northeast-2.amazonaws.com/details/hL5SqOBk",
-      },
-    ],
-    likeCount: 1,
-    sellerId: 1,
-    sellerEmail: "sarah@dunst.com",
-    companyName: "joonseong",
-    businessNumber: 101010101,
-    ceoName: "Tom",
-    ceoEmail: "306yyy@naver.com",
-    ceoPhone: "1043200933",
-    over: false,
-  },
-];
-
 interface Props {
   todayList: Product[];
-  onSlideChange: (index: number) => void;
+  onBg: (color: string) => void;
 }
 
-export default function MainSlider({ todayList, onSlideChange }: Props) {
+export default function MainSlider({ todayList, onBg }: Props) {
   const [currentSlide, setCurrentSlide] = useState(0);
   const maxItems = todayList.length; // 슬라이드 아이템 수
   const sliderLeftRef = useRef<Slider | null>(null);
   const sliderRightRef = useRef<Slider | null>(null);
+  const [colors, setColors] = useState<string>("");
 
   useEffect(() => {
-    onSlideChange(currentSlide); // currentSlide가 변경될 때 부모 함수를 호출
-  }, [currentSlide, onSlideChange]);
+    ImageWithColors(todayList[currentSlide].thumbnailImage);
+  }, [currentSlide]);
+
+  const ImageWithColors = (imageUrl: string) => {
+    const img = document.createElement("img");
+    img.crossOrigin = "Annoymous";
+    img.src = imageUrl;
+
+    img.onload = () => {
+      const colorThief = new ColorThief();
+      const extractedColors = colorThief.getColor(img);
+      const [r, g, b] = extractedColors;
+      const color = `rgb(${r}, ${g}, ${b})`;
+      const lightenColor = tinycolor(color).lighten(20).toString();
+      const darkenColor = tinycolor(color).darken(20).toString();
+      setColors(`rgb(${r}, ${g}, ${b})`);
+      onBg(`rgb(${r}, ${g}, ${b})`);
+      console.log("배경색" + color);
+    };
+  };
 
   useEffect(() => {
     const handleWheel = (e: WheelEvent) => {
@@ -143,8 +74,12 @@ export default function MainSlider({ todayList, onSlideChange }: Props) {
       }
     };
 
-    const sliderElement = document.querySelector(".slideshow-left") as HTMLElement;
-    const sliderRightElement = document.querySelector(".slideshow-right") as HTMLElement;
+    const sliderElement = document.querySelector(
+      ".slideshow-left"
+    ) as HTMLElement;
+    const sliderRightElement = document.querySelector(
+      ".slideshow-right"
+    ) as HTMLElement;
     sliderElement?.addEventListener("wheel", handleWheel);
     sliderRightElement?.addEventListener("wheel", handleWheel);
 
@@ -155,6 +90,8 @@ export default function MainSlider({ todayList, onSlideChange }: Props) {
   }, [currentSlide, maxItems]);
 
   const settingsLeft = {
+    arrows: false, // 화살표 숨기기
+    dots: false, // 점 네비게이션 숨기기
     vertical: true,
     verticalSwiping: true,
     infinite: false,
@@ -167,6 +104,8 @@ export default function MainSlider({ todayList, onSlideChange }: Props) {
   };
 
   const settingsRight = {
+    arrows: false, // 화살표 숨기기
+    dots: false, // 점 네비게이션 숨기기
     vertical: true,
     swipe: false,
     infinite: false,
@@ -179,7 +118,17 @@ export default function MainSlider({ todayList, onSlideChange }: Props) {
   };
 
   return (
-    <div className={styles.container}>
+    <div
+      className={styles.container}
+      style={{
+        background: colors,
+        //background: tinycolor(colors).darken(10).toString(),
+        // background: `linear-gradient(300deg, ${tinycolor(colors)
+        //   .lighten(20)
+        //   .toString()}, ${colors}, ${tinycolor(colors).darken(20).toString()})`,
+        // backgroundSize: "200% 200%",
+      }}
+    >
       <div className="slideshow-right">
         <Slider ref={sliderRightRef} {...settingsRight}>
           {todayList
@@ -188,10 +137,22 @@ export default function MainSlider({ todayList, onSlideChange }: Props) {
                 <div className={styles.timer}>
                   <TimeCount startTime={item.eventStartDate} />
                   <div className={styles.name}>{item.name}</div>
-                  <div className={styles.priceArea}>
-                    <div>{item.price.toLocaleString("ko-KR")}</div>
-                    <div>{getDiscount(item.price, item.discount).toLocaleString("ko-KR")}</div>
+                  <div className={styles.timedeal}>
+                    <div>
+                      <PiTimerBold />
+                    </div>
+                    <div> 타임딜가</div>
                   </div>
+                  <div className={styles.priceArea}>
+                    <div>{item.price.toLocaleString("ko-KR")}원</div>
+                    <div>
+                      {getDiscount(item.price, item.discount).toLocaleString(
+                        "ko-KR"
+                      )}
+                      원
+                    </div>
+                  </div>
+                  <div className={styles.stock}>{item.stock}개 남음</div>
                 </div>
               </div>
             ))
@@ -204,13 +165,18 @@ export default function MainSlider({ todayList, onSlideChange }: Props) {
             <div className={styles.background} key={index}>
               <div className={styles.eventTime}>
                 <div>{item.eventStartTime}:00</div>
-                <div>~</div>
+                <div>-</div>
                 <div>{item.eventEndTime}:00</div>
               </div>
               <div className={styles.imageArea}>
                 <Link href={`/products/${item.productId}`}>
                   <div className={styles.wrapper}>
-                    <Image src={item.thumbnailImage} alt="썸네일" fill sizes=""></Image>
+                    <Image
+                      src={item.thumbnailImage}
+                      alt="썸네일"
+                      fill
+                      sizes=""
+                    ></Image>
                   </div>
                   <div className={styles.hover}>
                     <div>Detail View ---&gt;</div>
@@ -222,6 +188,11 @@ export default function MainSlider({ todayList, onSlideChange }: Props) {
         </Slider>
       </div>
       <div className={styles.discount}>{todayList[currentSlide].discount}%</div>
+      <div className={styles.fogContainer}>
+        <Image src={fog} alt="fog1.png" fill sizes=""></Image>
+        <Image src={fog} alt="fog1.png" fill sizes=""></Image>
+        <Image src={fog} alt="fog1.png" fill sizes=""></Image>
+      </div>
     </div>
   );
 }

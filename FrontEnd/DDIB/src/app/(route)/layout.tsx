@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import { ReactNode, useEffect, useRef } from "react";
 import NavMenu from "@/app/_components/NavMenu";
 import styles from "./layout.module.scss";
 import RQProvider from "@/app/_components/RQProvider";

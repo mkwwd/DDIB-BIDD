@@ -5,7 +5,7 @@ import { useState } from "react";
 import styles from "./categoryArea.module.scss";
 
 export default function CategoryArea() {
-  const [category, setCategory] = useState("");
+  const [category, setCategory] = useState("All");
 
   const CategoryItem = [
     { title: "All", value: "" },
@@ -23,9 +23,13 @@ export default function CategoryArea() {
     <>
       <div className={styles.category}>
         {CategoryItem.map((item, index) => (
-          <div onClick={() => setCategory(item.value)} key={index} className={styles.categoryItem}>
+          <div
+            onClick={() => setCategory(item.title)}
+            key={index}
+            className={styles.categoryItem}
+          >
             {item.title}
-            {item.value == category && <div className={styles.underBar}></div>}
+            {item.title == category && <div className={styles.underBar}></div>}
           </div>
         ))}
       </div>

@@ -2,6 +2,8 @@ import { createMiddleware } from "@mswjs/http-middleware";
 import express from "express";
 import cors from "cors";
 import { handlers } from "./handlers";
+import { productHandlers } from "./productHandlers";
+import { categoryHandlers } from "./categoryHandlers";
 
 const app = express();
 const port = 8080;
@@ -14,5 +16,5 @@ app.use(
   })
 );
 app.use(express.json());
-app.use(createMiddleware(...handlers));
+app.use(createMiddleware(...handlers, ...productHandlers, ...categoryHandlers));
 app.listen(port, () => console.log(`Mock server is running on port: ${port}`));
