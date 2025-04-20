@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import styles from "./week.module.scss";
 
 interface Props {
@@ -70,8 +70,22 @@ export default function Week({ checkDay, changeDay }: Props) {
     <>
       <div className={styles.container}>
         {CalendarObject.map((calendar, index) => (
-          <div key={index} className={styles.dayBox} onClick={() => changeDay(index)}>
-            <div className={calendar.week === "Sat" ? styles.sat : calendar.week === "Sun" ? styles.sun : styles.day}>{calendar.week}</div>
+          <div
+            key={index}
+            className={styles.dayBox}
+            onClick={() => changeDay(index)}
+          >
+            <div
+              className={
+                calendar.week === "Sat"
+                  ? styles.sat
+                  : calendar.week === "Sun"
+                  ? styles.sun
+                  : styles.day
+              }
+            >
+              {calendar.week}
+            </div>
             <div className={styles.dayNum}>{calendar.day}</div>
             {checkDay === index && <div className={styles.underBar}></div>}
           </div>

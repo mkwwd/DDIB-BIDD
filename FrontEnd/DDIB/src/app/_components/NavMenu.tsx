@@ -3,7 +3,7 @@
 import styles from "./navMenu.module.scss";
 import { useSelectedLayoutSegment } from "next/navigation";
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { userStore } from "../_store/user";
 import { IoSearch } from "react-icons/io5";
 import { IoSearchOutline } from "react-icons/io5";
@@ -16,6 +16,7 @@ import Cookies from "js-cookie";
 import { useMutation } from "@tanstack/react-query";
 import { postUser } from "@/app/_api/user";
 import { useRouter } from "next/navigation";
+import { useNavStore } from "../_store/navStore";
 
 export default function NavMenu() {
   const segment = useSelectedLayoutSegment();
@@ -53,9 +54,26 @@ export default function NavMenu() {
     logOutUser.mutate();
   };
 
+  const navRef = useRef<HTMLDivElement | null>(null);
+  const setNavRect = useNavStore((state) => state.setNavRect);
+
+  useEffect(() => {
+    if (navRef.current) {
+      const updateNavRect = () => {
+        const rect = navRef.current!.getBoundingClientRect();
+        setNavRect(rect);
+      };
+      updateNavRect();
+      window.addEventListener("resize", updateNavRect);
+      return () => {
+        window.removeEventListener("resize", updateNavRect);
+      };
+    }
+  }, []);
+
   return (
     <>
-      <div className={styles.main}>
+      <div className={styles.main} ref={navRef}>
         <li className={styles.title}>
           <Link href="/">DDIB</Link>
         </li>
@@ -99,8 +117,15 @@ export default function NavMenu() {
         </li>
         {Cookies.get("Authorization") && (
           <li>
-            <div className={styles.alarm} onClick={() => setBellOn((prev) => !prev)}>
-              {bellOn ? <GoBellFill className={styles.icons} /> : <GoBell className={styles.icons} />}
+            <div
+              className={styles.alarm}
+              onClick={() => setBellOn((prev) => !prev)}
+            >
+              {bellOn ? (
+                <GoBellFill className={styles.icons} />
+              ) : (
+                <GoBell className={styles.icons} />
+              )}
             </div>
             {bellOn && (
               <div className={styles.alarmModal}>

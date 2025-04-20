@@ -1,14 +1,13 @@
 .containers {
   display: flex;
   flex-direction: column;
-  align-items: center;
   margin-bottom: 6vh;
 }
 
 .wrapper {
   position: relative;
   width: 100%;
-  height: 23vw;
+  height: 17vw;
 
   img {
     position: absolute;
@@ -20,9 +19,17 @@
     object-fit: cover;
     margin: auto;
   }
+
+  &:hover {
+    .reserve,
+    .reserveLogo {
+      display: block;
+    }
+  }
 }
 
-.sold {
+.sold,
+.reserve {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -60,39 +67,68 @@
   }
 }
 
+.reserve {
+  display: none;
+}
+
+.reserveLogo {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 2vw;
+  text-align: center;
+}
+
 .companyMini {
   display: flex;
+  align-self: center;
   gap: 0.5vh;
   margin: 1vh 0 0.3vh;
   & div:nth-child(1) {
     font-size: 1vw;
   }
   & div:nth-child(2) {
-    font-size: 0.8vw;
-    font-weight: bold;
+    font-size: 1vw;
+    font-weight: 700;
   }
 }
 
 .name {
-  font-size: 1.4vw;
+  margin-top: 1.3vh;
+  width: 100%;
+  font-size: 1.1vw;
+  white-space: wrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.2;
+  height: 2.4em;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
 }
 
-.price {
-  font-size: 0.7vw;
-  color: gray;
-  text-decoration: line-through;
-}
-
-.salePrice {
+.priceArea {
   display: flex;
   align-items: center;
-  gap: 0.5vh;
-  font-weight: bold;
-  & > div:nth-child(1) {
-    font-size: 1.2vw;
-    color: var(--scarlet);
-  }
-  & > div:nth-child(2) {
+  gap: 0.5vw;
+  margin-top: 0.3vw;
+  > div:nth-child(1) {
     font-size: 1vw;
+    color: gray;
+    text-decoration: line-through;
+  }
+  > div:nth-child(2) {
+    font-size: 1.5vw;
+    color: black;
+    font-weight: bold;
+  }
+  > div:nth-child(3) {
+    font-size: 1.5vw;
+    color: var(--scarlet);
+    font-weight: bold;
   }
 }

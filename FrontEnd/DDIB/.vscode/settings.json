@@ -1,2 +1,13 @@
 {
+  "files.autoSave": "onFocusChange",
+  "liveServer.settings.CustomBrowser": "chrome",
+  "json.schemas": [],
+  "workbench.iconTheme": "eq-material-theme-icons-darker",
+  "editor.guides.bracketPairs": "active",
+  "editor.fontFamily": "Monaco",
+  "editor.fontSize": 14,
+  "editor.tabSize": 2,
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.codeActionsOnSave": {}
 }

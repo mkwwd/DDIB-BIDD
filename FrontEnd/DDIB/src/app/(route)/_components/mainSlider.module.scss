@@ -1,11 +1,15 @@
 .container {
   position: relative;
   display: flex;
+  transition: background-color 1s ease;
+  cursor: none;
   > div:nth-child(1) {
+    z-index: 10;
     width: 50%;
     height: 100vh;
   }
   > div:nth-child(2) {
+    z-index: 10;
     width: 50%;
     height: 100vh;
   }
@@ -32,21 +36,38 @@
   margin-top: 1vw;
   font-size: 2.6vw;
   font-weight: bold;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.2;
+  height: 3.6em;
+  white-space: normal;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+.timedeal {
+  display: flex;
+  gap: 5px;
+  color: var(--scarlet);
+  font-weight: 700;
+  font-size: 1.5vw;
+  margin-top: 0.5vw;
 }
 
 .priceArea {
-  margin-top: 1vw;
-  margin-left: 4vw;
   display: flex;
-  gap: 1vw;
+  flex-direction: row;
   align-items: center;
+  gap: 2vh;
   > div:nth-child(1) {
-    font-size: 1vw;
-    color: gray;
+    font-size: 1.4vw;
+    color: rgb(133, 130, 130);
     text-decoration: line-through;
+    //text-shadow: 3px 3px 2px rgb(45, 45, 45);
   }
   > div:nth-child(2) {
     font-size: 4vw;
+    text-shadow: 5px 5px 2px rgba(0, 0, 0, 0.183);
   }
 }
 
@@ -56,25 +77,28 @@
   display: flex;
   align-items: baseline;
   gap: 0.5vw;
-  padding: 1vw 3vw;
+  padding: 1vw 2vw 1vw 3vw;
   top: 6vw;
   right: 0;
   background-color: var(--scarlet);
   color: white;
+  font-size: 1.5vw;
   > div:nth-child(1) {
     font-size: 4vw;
   }
 }
 
 .discount {
+  z-index: 20;
   font-family: "Montaga";
   font-style: italic;
   position: absolute;
-  bottom: 10%;
+  bottom: 2%;
   left: 40%;
   font-size: 15vw;
   color: var(--scarlet);
   animation: reveal 1s cubic-bezier(0.77, 0, 0.175, 1);
+  text-shadow: 5px 10px 2px rgba(0, 0, 0, 0.183);
 }
 
 @keyframes reveal {
@@ -87,12 +111,12 @@
 }
 
 .imageArea {
-  cursor: pointer;
+  cursor: none;
   position: absolute;
-  width: 60%;
+  width: 65%;
   height: 70vh;
   top: 53%;
-  left: 5%;
+  left: 8%;
   transform: translateY(-50%);
 
   &:hover {
@@ -103,10 +127,11 @@
 }
 
 .wrapper {
+  cursor: none;
   position: relative;
   width: 100%;
   height: 100%;
-  box-shadow: 0 0 10px 2px rgb(232, 232, 232);
+  box-shadow: 8px 8px 10px 10px rgba(0, 0, 0, 0.103);
 
   img {
     position: absolute;
@@ -121,6 +146,7 @@
 }
 
 .hover {
+  cursor: none;
   display: none;
   position: absolute;
   top: 0;
@@ -132,5 +158,69 @@
     bottom: 2%;
     right: 2%;
     font-size: 2vw;
+  }
+}
+
+.stock {
+  font-size: 1.5vw;
+  color: var(--scarlet);
+  font-weight: bold;
+}
+
+.fogContainer {
+  pointer-events: none;
+  img {
+    opacity: 0;
+    position: fixed;
+    width: 20%;
+  }
+  :nth-child(1) {
+    width: 50%;
+    animation: fog-animation-1 30s linear infinite;
+  }
+  :nth-child(2) {
+    width: 80%;
+    animation: fog-animation-2 40s linear infinite;
+  }
+  :nth-child(3) {
+    width: 100%;
+    animation: fog-animation-3 50s linear infinite;
+  }
+}
+
+@keyframes fog-animation-1 {
+  0% {
+    top: -20%;
+    left: -30%;
+    opacity: 0.7;
+  }
+  100% {
+    top: -5%;
+    left: -10%;
+    opacity: 0.1;
+  }
+}
+
+@keyframes fog-animation-2 {
+  0% {
+    top: 50%;
+    left: 10%;
+    opacity: 0.6;
+  }
+  100% {
+    top: 70%;
+    left: -5%;
+  }
+}
+
+@keyframes fog-animation-3 {
+  0% {
+    top: 30%;
+    left: 50%;
+    opacity: 0.7;
+  }
+  100% {
+    top: 50%;
+    left: 80%;
   }
 }
