@@ -214,8 +214,7 @@
 **1️⃣ 타임딜 목록 조회**
 
 사용자는 오늘의 타임딜과 주간 타임딜, 카테고리별 타임딜 이벤트를 조회할 수 있다.
-
-![image](https://github.com/tpwls101/DDIB/assets/97137124/78dc587c-8c43-4d90-bb89-6cc04b2ffc02)
+![product](https://github.com/user-attachments/assets/5cad6f95-d92e-4899-9cb2-dc17b06dd13a)
 
 
 **2️⃣ 검색**
