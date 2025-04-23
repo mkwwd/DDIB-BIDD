@@ -20,6 +20,15 @@ export default function TodayItems({ todayList, bgColor }: Props) {
   const [items, setItems] = useState(todayList);
 
   useEffect(() => {
+    if (items) {
+      const currentDayData = items;
+      const notOver = currentDayData.filter((item) => !item.over);
+      const over = currentDayData.filter((item) => item.over);
+      setItems([...notOver, ...over]);
+    }
+  }, []);
+
+  useEffect(() => {
     const handleScroll = (event: WheelEvent) => {
       if (event.deltaY < 0) {
         // deltaY 값이 음수면 사용자가 위로 스크롤

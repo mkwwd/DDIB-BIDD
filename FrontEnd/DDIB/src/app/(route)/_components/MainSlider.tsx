@@ -152,7 +152,7 @@ export default function MainSlider({ todayList, onBg }: Props) {
                       원
                     </div>
                   </div>
-                  <div className={styles.stock}>{item.stock}개 남음</div>
+                  <div className={styles.stock}>{item.stock}개 한정</div>
                 </div>
               </div>
             ))

@@ -6,7 +6,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper-bundle.css";
 import "swiper/css/effect-fade";
 import "swiper/css/pagination";
-import { EffectCube, Pagination, EffectFade, Mousewheel } from "swiper/modules";
+import { Pagination, EffectFade, Mousewheel } from "swiper/modules";
 import Link from "next/link";
 import { useQuery } from "@tanstack/react-query";
 import { getProductWeek } from "@/app/_api/product";
@@ -17,7 +17,7 @@ import TimeCount from "@/app/_components/TimeCount";
 import Lottie from "react-lottie-player";
 import noProduct from "@/app/_components/noProduct.json";
 import { PiTimerBold } from "react-icons/pi";
-import { it } from "node:test";
+import { timerStore } from "@/app/_store/product";
 
 interface Props {
   checkDay: number;
@@ -52,6 +52,8 @@ export default function WeekItem({ checkDay }: Props) {
       swiperInstance.pagination.update();
     }
   }, [swiperInstance]);
+
+  const { timerOn } = timerStore();
 
   return (
     <>
@@ -89,11 +91,20 @@ export default function WeekItem({ checkDay }: Props) {
                       )}
                       <div className={styles.backGroundLight}>
                         <div className={styles.backGroundColor}>
-                          <div className={styles.eventTime}>
-                            <div>
-                              <PiTimerBold style={{ marginTop: "2px" }} />
+                          <div className={styles.timeAndstock}>
+                            <div className={styles.eventTime}>
+                              <div>
+                                <PiTimerBold style={{ marginTop: "2px" }} />
+                              </div>
+                              {item.eventStartTime}:00 - {item.eventEndTime}:00
                             </div>
-                            {item.eventStartTime}:00 - {item.eventEndTime}:00
+                            <div className={styles.stock}>
+                              {item.over ? (
+                                <>0개 남음</>
+                              ) : (
+                                <>{item.stock}개 한정</>
+                              )}
+                            </div>
                           </div>
                           <div>
                             <div className={styles.name}>{item.name}</div>
@@ -112,10 +123,13 @@ export default function WeekItem({ checkDay }: Props) {
                                 <div className={styles.timeThree}>
                                   타임딜 종료
                                 </div>
-                              ) : (
+                              ) : timerOn ? (
                                 <div className={styles.timeOne}>
-                                  {" "}
                                   <TimeCount startTime={item.eventStartDate} />
+                                </div>
+                              ) : (
+                                <div className={styles.timeFour}>
+                                  🚨타임딜 진행중🚨
                                 </div>
                               )
                             ) : (
