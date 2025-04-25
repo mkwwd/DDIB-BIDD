@@ -1,6 +1,7 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 import { OrderAddressInfo, OrderProduct } from "@/app/_types/types";
+import { truncateSync } from "fs";
 
 interface Amount {
   amount: number;
@@ -58,7 +59,12 @@ export const orderAddressStore = create<OrderAddress>((set) => ({
   setOrderAddressInfo: (info) => set(() => ({ addressInfo: info })),
 }));
 
-// interface Timer {
-//   timer : boolean;
-//   set : ()
-// }
+interface Timer {
+  timerOn: boolean;
+  setTimerOn: (timerstate: boolean) => void;
+}
+
+export const timerStore = create<Timer>((set) => ({
+  timerOn: true,
+  setTimerOn: (timerState) => set(() => ({ timerOn: timerState })),
+}));

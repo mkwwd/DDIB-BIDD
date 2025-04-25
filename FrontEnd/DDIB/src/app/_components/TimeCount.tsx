@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { timerStore } from "@/app/_store/product";
 
 interface Props {
   startTime: string;
@@ -12,16 +13,21 @@ export default function TimeCount({ startTime }: Props) {
     targetTime.getTime() - new Date().getTime()
   );
 
+  const { setTimerOn } = timerStore();
+
   useEffect(() => {
     console.log(startTime);
     console.log(targetTime.getTime());
     console.log(new Date().getTime());
     const timerID = setInterval(() => {
       const newTimeLeft = targetTime.getTime() - new Date().getTime();
-      setTimeLeft(newTimeLeft);
 
       if (newTimeLeft <= 0) {
+        setTimeLeft(0);
+        setTimerOn(false);
         clearInterval(timerID);
+      } else {
+        setTimeLeft(newTimeLeft);
       }
     }, 1000);
 
