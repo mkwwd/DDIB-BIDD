@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { NextPage } from "next";
 import Lottie from "react-lottie-player";
-import not from "./_components/notfound.json";
+import not from "./components/notfound.json";
 
 const NotFound: NextPage = () => {
   return (

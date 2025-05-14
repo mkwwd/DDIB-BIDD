@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { timerStore } from "@/app/_store/product";
+import { timerStore } from "@/app/store/product";
 
 interface Props {
   startTime: string;

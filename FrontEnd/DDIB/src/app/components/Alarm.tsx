@@ -1,9 +1,9 @@
 "use client";
 
-import { getAlarmList } from "@/app/_api/alarm";
+import { getAlarmList } from "@/app/api/alarm";
 import styles from "./alarm.module.scss";
 import { useQuery } from "@tanstack/react-query";
-import { AlarmList } from "@/app/_types/types";
+import { AlarmList } from "@/app/types/types";
 import Link from "next/link";
 import Cookies from "js-cookie";
 
@@ -27,7 +27,11 @@ export default function Alarm() {
     <div className={styles.container}>
       <div className={styles.alarm}>
         <div>키워드 알람</div>
-        {cookie == "true" ? <div className={styles.on}>ON</div> : <div className={styles.off}>OFF</div>}
+        {cookie == "true" ? (
+          <div className={styles.on}>ON</div>
+        ) : (
+          <div className={styles.off}>OFF</div>
+        )}
         <Link href="/mypage/userinfo">
           <div>&gt;</div>
         </Link>
@@ -36,7 +40,9 @@ export default function Alarm() {
         {data &&
           data.map((item, index) => (
             <div className={styles.text} key={index}>
-              {item.generatedTime.length != 0 && <div>{setDate(item.generatedTime)}</div>}
+              {item.generatedTime.length != 0 && (
+                <div>{setDate(item.generatedTime)}</div>
+              )}
               <div>{item.title}</div>
               <div>{item.content}</div>
             </div>

@@ -2,7 +2,7 @@
 
 import styles from "./productOrdered.module.scss";
 import Image from "next/image";
-import { OrderProduct } from "@/app/_types/types";
+import { OrderProduct } from "@/app/types/types";
 import { BiSolidBusiness } from "react-icons/bi";
 import { useEffect } from "react";
 

@@ -2,9 +2,9 @@
 
 import styles from "./apply.module.scss";
 import { useEffect, useState } from "react";
-import { putAlarmOff, putAlarmOn, getAlarmCategory } from "@/app/_api/alarm";
+import { putAlarmOff, putAlarmOn, getAlarmCategory } from "@/app/api/alarm";
 import { useMutation, useQuery } from "@tanstack/react-query";
-import { AlarmApply } from "@/app/_types/types";
+import { AlarmApply } from "@/app/types/types";
 import Cookies from "js-cookie";
 
 export default function Apply() {
@@ -51,7 +51,11 @@ export default function Apply() {
   });
 
   const handleItemClick = (index: number) => {
-    setCategoryItem((prevItems) => prevItems.map((item, i) => (i === index ? { ...item, value: !item.value } : item)));
+    setCategoryItem((prevItems) =>
+      prevItems.map((item, i) =>
+        i === index ? { ...item, value: !item.value } : item
+      )
+    );
   };
 
   const applyAlarm = () => {
@@ -93,7 +97,11 @@ export default function Apply() {
       <div className={styles.underBar}></div>
       <div className={styles.category}>
         {CategoryItem.map((item, index) => (
-          <div key={index} className={item.value ? styles.check : styles.item} onClick={() => handleItemClick(index)}>
+          <div
+            key={index}
+            className={item.value ? styles.check : styles.item}
+            onClick={() => handleItemClick(index)}
+          >
             {item.title}
           </div>
         ))}

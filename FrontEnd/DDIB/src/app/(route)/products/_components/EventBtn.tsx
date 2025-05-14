@@ -1,7 +1,7 @@
 "use client";
 
 import styles from "./eventBtn.module.scss";
-import TimeCount from "@/app/_components/TimeCount";
+import TimeCount from "@/app/components/TimeCount";
 
 interface Props {
   joinBuy: () => void;

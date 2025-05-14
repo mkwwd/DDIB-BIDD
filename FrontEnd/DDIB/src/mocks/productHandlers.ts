@@ -366,4 +366,37 @@ export const productHandlers = [
       [],
     ]);
   }),
+  http.get("/api/product/:productId/:userPk", ({ request, params }) => {
+    const { productId } = params;
+
+    return HttpResponse.json([
+      {
+        productId: productId,
+        name: "정샘물 에센셜 스킨 누더 쿠션 14g + 리필 14g, 핑크라이트, 1세트",
+        totalStock: 100,
+        stock: 100,
+        eventStartDate: "2025-04-21T11:00:00",
+        eventEndDate: "2025-04-21T13:00:00",
+        eventStartTime: 11,
+        eventEndTime: 13,
+        price: 45000,
+        discount: 35,
+        thumbnailImage: "/images/jungsaemmool1.jpg",
+        category: "Beauty",
+        details: [
+          {
+            productDetailId: 17,
+            imageUrl: "/images/jungsaemmool2.jpg",
+          },
+        ],
+        likeCount: 0,
+        sellerId: 1,
+        companyName: "joonseong",
+        businessNumber: 101010101,
+        companyPhone: 1043200933,
+        companyEmail: "306yyy@naver.com",
+        over: false,
+      },
+    ]);
+  }),
 ];

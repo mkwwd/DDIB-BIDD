@@ -1,5 +1,5 @@
-import { AlarmApply } from "@/app/_types/types";
-import { ClientAxiosApi } from "@/app/_utils/commons";
+import { AlarmApply } from "@/app/types/types";
+import { ClientAxiosApi } from "@/app/utils/commons";
 
 const api = ClientAxiosApi();
 

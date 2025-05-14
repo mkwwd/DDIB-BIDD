@@ -2,12 +2,12 @@
 
 import styles from "./orderList.module.scss";
 import { useState, useEffect } from "react";
-import { OrderDetail } from "@/app/_types/types";
+import { OrderDetail } from "@/app/types/types";
 import Link from "next/link";
-import ProductOrdered from "@/app/_components/ProductOrdered";
+import ProductOrdered from "@/app/components/ProductOrdered";
 import { useQuery } from "@tanstack/react-query";
-import { getOrderList } from "@/app/_api/order";
-import { userStore } from "@/app/_store/user";
+import { getOrderList } from "@/app/api/order";
+import { userStore } from "@/app/store/user";
 import Cookies from "js-cookie";
 
 export default function OrderList() {

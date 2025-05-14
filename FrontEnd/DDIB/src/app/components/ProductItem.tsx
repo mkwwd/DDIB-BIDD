@@ -4,7 +4,7 @@ import styles from "./productItem.module.scss";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { BiSolidBusiness } from "react-icons/bi";
-import { getDiscount } from "../_utils/commonFunction";
+import { getDiscount } from "../utils/commonFunction";
 
 interface Props {
   thumbnailImage: string;

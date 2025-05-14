@@ -1,11 +1,11 @@
 "use client";
 
-import OrderForm from "@/app/_components/OrderForm";
+import OrderForm from "@/app/components/OrderForm";
 import { useEffect, useState } from "react";
-import { OrderDetail } from "@/app/_types/types";
-import { orderStore, orderAddressStore } from "@/app/_store/product";
+import { OrderDetail } from "@/app/types/types";
+import { orderStore, orderAddressStore } from "@/app/store/product";
 import { useQuery } from "@tanstack/react-query";
-import { getOrderDetail } from "@/app/_api/order";
+import { getOrderDetail } from "@/app/api/order";
 import { useParams } from "next/navigation";
 
 export default function OrderComplete() {
@@ -51,7 +51,12 @@ export default function OrderComplete() {
     <>
       {isDone && data && (
         <>
-          <OrderForm type="complete" orderId={data.orderId} orderDate={data.orderDate} paymentMethod={data.paymentMethod} />
+          <OrderForm
+            type="complete"
+            orderId={data.orderId}
+            orderDate={data.orderDate}
+            paymentMethod={data.paymentMethod}
+          />
         </>
       )}
     </>

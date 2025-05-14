@@ -6,24 +6,24 @@ import Link from "next/link";
 import { useState, useEffect } from "react";
 import { useRouter, usePathname, useParams } from "next/navigation";
 
-import { ProductInfo } from "@/app/_types/types";
+import { ProductInfo } from "@/app/types/types";
 import { MdKeyboardDoubleArrowDown } from "react-icons/md";
 import { MdKeyboardDoubleArrowUp } from "react-icons/md";
 import { TfiArrowCircleDown } from "react-icons/tfi";
 import { TfiArrowCircleUp } from "react-icons/tfi";
 import { AiFillShop } from "react-icons/ai";
 import { LiaShippingFastSolid } from "react-icons/lia";
-import TimeCount from "@/app/_components/TimeCount";
-import AmountBtn from "@/app/_components/AmountBtn";
-import { amountStore, orderStore } from "@/app/_store/product";
-import { userStore } from "@/app/_store/user";
-import { listIn, test } from "@/app/_api/waiting";
+import TimeCount from "@/app/components/TimeCount";
+import AmountBtn from "@/app/components/AmountBtn";
+import { amountStore, orderStore } from "@/app/store/product";
+import { userStore } from "@/app/store/user";
+import { listIn, test } from "@/app/api/waiting";
 import { useQuery } from "@tanstack/react-query";
-import { getProductDetail } from "@/app/_api/product";
+import { getProductDetail } from "@/app/api/product";
 import EventBtn from "@/app/(route)/products/_components/EventBtn";
 import LikeBtn from "../_components/LikeBtn";
 import Cookies from "js-cookie";
-import { getDiscount } from "@/app/_utils/commonFunction";
+import { getDiscount } from "@/app/utils/commonFunction";
 
 export default function ProductDetail() {
   const router = useRouter();
@@ -89,7 +89,12 @@ export default function ProductDetail() {
             <div className={styles.category}>TimeDeal &gt; {data.category}</div>
             <div className={styles.info}>
               <div className={styles.sectionOne}>
-                <Image src={data.thumbnailImage} alt="상품썸네일" fill sizes="auto"></Image>
+                <Image
+                  src={data.thumbnailImage}
+                  alt="상품썸네일"
+                  fill
+                  sizes="auto"
+                ></Image>
                 {data.over && (
                   <>
                     <div className={styles.sold}></div>
@@ -126,21 +131,44 @@ export default function ProductDetail() {
                 </div>
                 <div className={styles.btnArea}>
                   <div>
-                    <LikeBtn productId={data.productId} like={data.liked} likeCnt={data.likeCount} />
-                    <div className={styles.alert}>좋아요 누르고 오픈 알람받아요~</div>
+                    <LikeBtn
+                      productId={data.productId}
+                      like={data.liked}
+                      likeCnt={data.likeCount}
+                    />
+                    <div className={styles.alert}>
+                      좋아요 누르고 오픈 알람받아요~
+                    </div>
                   </div>
                   <div>
-                    <EventBtn joinBuy={joinBuy} over={data.over} startTime={data.eventStartDate} />
+                    <EventBtn
+                      joinBuy={joinBuy}
+                      over={data.over}
+                      startTime={data.eventStartDate}
+                    />
                   </div>
                 </div>
               </div>
             </div>
             <div className={styles.detailArea}>
               <div className={styles.detailTitle}>Details</div>
-              <div className={viewMore ? `${styles.detailPhotoView}` : `${styles.detailPhoto}`}>
+              <div
+                className={
+                  viewMore
+                    ? `${styles.detailPhotoView}`
+                    : `${styles.detailPhoto}`
+                }
+              >
                 {data.details.map((image, index) => (
                   <div className={styles.wrapper} key={index}>
-                    <Image src={image.imageUrl} alt="상품썸네일" layout="responsive" width={100} height={100} objectFit="contain"></Image>
+                    <Image
+                      src={image.imageUrl}
+                      alt="상품썸네일"
+                      layout="responsive"
+                      width={100}
+                      height={100}
+                      objectFit="contain"
+                    ></Image>
                   </div>
                 ))}
               </div>
@@ -177,8 +205,12 @@ export default function ProductDetail() {
                     <div>대표이메일</div>
                   </div>
                   <div className={styles.sellerItem}>
-                    <div>{data.companyName.length != 0 ? data.companyName : " "}</div>
-                    <div>{data.businessNumber != 0 ? data.businessNumber : ""}</div>
+                    <div>
+                      {data.companyName.length != 0 ? data.companyName : " "}
+                    </div>
+                    <div>
+                      {data.businessNumber != 0 ? data.businessNumber : ""}
+                    </div>
                     <div>{data.ceoName.length != 0 ? data.ceoName : " "}</div>
                     <div>{data.ceoPhone.length != 0 ? data.ceoPhone : " "}</div>
                     <div>{data.ceoEmail.length != 0 ? data.ceoEmail : " "}</div>

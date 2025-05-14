@@ -4,10 +4,10 @@ import { useState, useEffect } from "react";
 import styles from "./mainArea.module.scss";
 import TodayItems from "./TodayItems";
 import { useQuery } from "@tanstack/react-query";
-import { getTodayList } from "@/app/_api/product";
-import { TodayList } from "@/app/_types/types";
+import { getTodayList } from "@/app/api/product";
+import { TodayList } from "@/app/types/types";
 import MainSlider from "@/app/(route)/_components/MainSlider";
-import { useNavStore } from "@/app/_store/navStore";
+import { useNavStore } from "@/app/store/navStore";
 
 export default function MainArea() {
   const [bgColor, setBgColor] = useState<string>("");
