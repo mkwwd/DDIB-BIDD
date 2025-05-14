@@ -2,9 +2,9 @@
 
 import { useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
-import { getUserInfo } from "../_api/user";
-import { User } from "../_types/types";
-import { userStore } from "../_store/user";
+import { getUserInfo } from "../api/user";
+import { User } from "../types/types";
+import { userStore } from "../store/user";
 import Cookies from "js-cookie";
 
 export default function SetUserInfo() {

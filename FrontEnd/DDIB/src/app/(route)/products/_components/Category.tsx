@@ -1,14 +1,14 @@
 "use client";
 
-import ProductItem from "@/app/_components/ProductItem";
+import ProductItem from "@/app/components/ProductItem";
 import styles from "./category.module.scss";
 import Link from "next/link";
 import { useQuery } from "@tanstack/react-query";
-import { Product } from "@/app/_types/types";
-import { getProductSearch } from "@/app/_api/product";
+import { Product } from "@/app/types/types";
+import { getProductSearch } from "@/app/api/product";
 import { useEffect } from "react";
 import Lottie from "react-lottie-player";
-import noProduct2 from "@/app/_components/noProduct2.json";
+import noProduct2 from "@/app/components/noProduct2.json";
 
 interface Props {
   category: string;

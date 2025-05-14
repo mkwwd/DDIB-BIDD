@@ -1,6 +1,6 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
-import { User } from "@/app/_types/types";
+import { User } from "@/app/types/types";
 
 interface UserInfo {
   jwt: string;

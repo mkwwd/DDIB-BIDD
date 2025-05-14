@@ -1,4 +1,4 @@
-import { ClientAxiosApi } from "@/app/_utils/commons";
+import { ClientAxiosApi } from "@/app/utils/commons";
 
 const api = ClientAxiosApi();
 
@@ -18,10 +18,16 @@ async function getProductWeek() {
   }
 }
 
-async function getProductSearch(keyword: string | null, category: string | null, isOver: string | null) {
+async function getProductSearch(
+  keyword: string | null,
+  category: string | null,
+  isOver: string | null
+) {
   console.log(keyword);
   console.log(category);
-  const { data } = await api.get(`/api/product/search?keyword=${keyword}&category=${category}&isOver=${isOver}`);
+  const { data } = await api.get(
+    `/api/product/search?keyword=${keyword}&category=${category}&isOver=${isOver}`
+  );
   console.log(data);
   return data;
 }
@@ -53,4 +59,12 @@ async function deleteLike(productId: number, userPk: string) {
   console.log("좋아요 취소");
 }
 
-export { getTodayList, getProductWeek, getProductSearch, getProductDetail, getWishList, postLike, deleteLike };
+export {
+  getTodayList,
+  getProductWeek,
+  getProductSearch,
+  getProductDetail,
+  getWishList,
+  postLike,
+  deleteLike,
+};

@@ -4,7 +4,7 @@ import styles from "./navMenu.module.scss";
 import { useSelectedLayoutSegment } from "next/navigation";
 import Link from "next/link";
 import React, { useState, useRef, useEffect } from "react";
-import { userStore } from "../_store/user";
+import { userStore } from "../store/user";
 import { IoSearch } from "react-icons/io5";
 import { IoSearchOutline } from "react-icons/io5";
 import { GoBell } from "react-icons/go";
@@ -14,13 +14,16 @@ import { GoPersonFill } from "react-icons/go";
 import Alarm from "./Alarm";
 import Cookies from "js-cookie";
 import { useMutation } from "@tanstack/react-query";
-import { postUser } from "@/app/_api/user";
+import { postUser } from "@/app/api/user";
 import { useRouter } from "next/navigation";
-import { useNavStore } from "../_store/navStore";
+import { useNavStore } from "../store/navStore";
+import { useSession, signIn, signOut } from "next-auth/react";
 
 export default function NavMenu() {
   const segment = useSelectedLayoutSegment();
   console.log(segment);
+
+  const { data: session } = useSession();
 
   const { jwt } = userStore();
   const router = useRouter();
@@ -115,7 +118,7 @@ export default function NavMenu() {
             )}
           </Link>
         </li>
-        {Cookies.get("Authorization") && (
+        {session && (
           <li>
             <div
               className={styles.alarm}
@@ -135,9 +138,12 @@ export default function NavMenu() {
           </li>
         )}
         <li>
-          {!Cookies.get("Authorization") ? (
+          {!session ? (
             <>
-              <div onClick={kakaoLogin} className={styles.beforeLogin}>
+              <div
+                onClick={() => signIn("kakao")}
+                className={styles.beforeLogin}
+              >
                 <GoPerson className={styles.icons} />
                 <div className={styles.logBtn}>Login</div>
               </div>
@@ -147,7 +153,7 @@ export default function NavMenu() {
               <Link href="/mypage">
                 <div className={styles.afterLogin}>
                   <GoPersonFill className={styles.icons} />
-                  <div className={styles.logBtn} onClick={logOut}>
+                  <div className={styles.logBtn} onClick={() => signOut()}>
                     Logout
                   </div>
                 </div>
@@ -158,7 +164,7 @@ export default function NavMenu() {
               <Link href="/mypage">
                 <div className={styles.afterLogin}>
                   <GoPerson className={styles.icons} />
-                  <div className={styles.logBtn} onClick={logOut}>
+                  <div className={styles.logBtn} onClick={() => signOut()}>
                     Logout
                   </div>
                 </div>

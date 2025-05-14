@@ -2,7 +2,7 @@
 
 import styles from "./amountBtn.module.scss";
 import { useEffect } from "react";
-import { amountStore } from "@/app/_store/product";
+import { amountStore } from "@/app/store/product";
 
 interface Props {
   stock: number;

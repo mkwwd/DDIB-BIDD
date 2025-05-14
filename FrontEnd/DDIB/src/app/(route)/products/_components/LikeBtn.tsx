@@ -3,8 +3,8 @@
 import styles from "./likeBtn.module.scss";
 import { useState, useEffect } from "react";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { postLike, deleteLike } from "@/app/_api/product";
-import { userStore } from "@/app/_store/user";
+import { postLike, deleteLike } from "@/app/api/product";
+import { userStore } from "@/app/store/user";
 import cx from "classnames";
 import Cookies from "js-cookie";
 

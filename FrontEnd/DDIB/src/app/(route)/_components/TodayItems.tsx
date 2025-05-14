@@ -1,14 +1,14 @@
 "use client";
 
 import styles from "./todayItem.module.scss";
-import { Product } from "@/app/_types/types";
+import { Product } from "@/app/types/types";
 import { useState, useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { A11y, Autoplay, EffectCoverflow } from "swiper/modules";
 import "swiper/swiper-bundle.css";
 import Link from "next/link";
 import Image from "next/image";
-import { getDiscount } from "@/app/_utils/commonFunction";
+import { getDiscount } from "@/app/utils/commonFunction";
 import fog from "../../../../public/images/fogg2.png";
 
 interface Props {
