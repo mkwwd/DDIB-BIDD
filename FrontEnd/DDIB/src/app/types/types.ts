@@ -26,12 +26,11 @@ export interface Product {
   details: Array<DetailImage>;
   likeCount: number;
   sellerId: number;
-  sellerEmail: string;
-  companyName: string;
   businessNumber: number;
+  companyName: string;
   ceoName: string;
-  ceoEmail: string;
-  ceoPhone: string;
+  companyPhone: string;
+  companyEmail: string;
   over: boolean;
 }
 

@@ -34,6 +34,7 @@ async function getProductSearch(
 
 async function getProductDetail(productId: string, userPk: string) {
   const { data } = await api.get(`/api/product/${productId}/${userPk}`);
+  console.log("detail", data);
   return data;
 }
 

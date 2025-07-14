@@ -74,6 +74,26 @@ export default function NavMenu() {
     }
   }, []);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!navRef.current) return;
+      //navRef.current.style.background = window.scrollY === 0 ? "" : "#ff5454";
+      //navRef.current.classList.add = window.scrollY === 0 ? "" : "#ff5454";
+      if (window.scrollY === 0) {
+        navRef.current.classList.remove(styles.scrolled);
+      } else {
+        navRef.current.classList.add(styles.scrolled);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    handleScroll();
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
     <>
       <div className={styles.main} ref={navRef}>
