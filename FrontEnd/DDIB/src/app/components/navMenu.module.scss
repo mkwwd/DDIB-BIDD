@@ -15,6 +15,12 @@
   // );
 }
 
+.scrolled {
+  background-color: #ffffffcf;
+  //background-color: #ff54546d;
+  backdrop-filter: blur(10px);
+}
+
 .title {
   a {
     font-family: "Tienne";

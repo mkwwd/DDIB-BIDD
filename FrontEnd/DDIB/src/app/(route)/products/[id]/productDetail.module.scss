@@ -1,18 +1,72 @@
 .main {
   width: 100dvw;
-  padding: 15%;
+  padding: 6% 0 0;
 }
 
 .category {
-  padding-bottom: 1.5vh;
   color: gray;
   font-size: 1rem;
+  padding-bottom: 20px;
+}
+
+.info {
+  gap: 4vw;
+  min-height: 150vh;
+  padding: 1% 40% 0 10%;
+  position: relative;
+  background-color: rgb(250, 250, 250);
 }
 
 .sectionOne {
-  height: 30vw;
+  display: flex;
+  flex-direction: column;
+  padding: 3% 0;
+  width: 100%;
+  background-color: white;
+}
+
+.thumbnailArea {
+  display: flex;
+  flex-direction: column;
+  height: 80vh;
+  padding: 5% 10%;
+}
+
+.thumbnailContainer {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  flex-direction: row;
+  justify-content: center;
+  gap: 20px;
+}
+
+.thumbmini {
+  cursor: pointer;
   position: relative;
-  flex: 0.8;
+  width: 10vh;
+  height: 10vh;
+  background-color: red;
+  img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translate(50, 50);
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    margin: auto;
+  }
+
+  &:active {
+    border: 1px solid var(--scarlet);
+  }
+}
+
+.thumbnailWrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
   min-width: 150px;
   min-height: 150px;
 
@@ -66,21 +120,28 @@
   }
 }
 
-.info {
-  display: flex;
-  gap: 4vw;
+.sectionTwo {
+  //background-color: rgba(255, 84, 84, 0.03);
+  background-color: rgb(250, 250, 250);
+  position: fixed;
+  top: 15%;
+  right: 1%;
+  height: 100vh;
+  width: 30%;
 }
 
-.sectionTwo {
-  flex: 1.2;
+.twoContainer {
   display: flex;
   flex-direction: column;
+  background-color: white;
+  padding: 10% 5%;
+  height: 90vh;
 }
 
 .companyMini {
   display: flex;
   gap: 0.5vh;
-  margin-bottom: 0.2vw;
+  margin-bottom: 5px;
   & div:nth-child(1) {
     font-size: 1.5vw;
   }
@@ -90,14 +151,15 @@
 }
 
 .name {
-  font-size: 2.3vw;
+  font-size: 2vw;
   font-weight: bold;
-  margin: 0 0 1vw;
+  margin-bottom: 1vw;
 }
 
 .price {
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
   & > div:nth-child(1) {
     font-size: 1.2vw;
     color: rgb(203, 199, 199);
@@ -107,7 +169,7 @@
   & > div:nth-child(2) {
     display: flex;
     gap: 2vh;
-    font-size: 1.5vw;
+    font-size: 2vw;
     font-weight: bold;
     margin-bottom: 1.5vh;
   }
@@ -120,7 +182,8 @@
 .line {
   width: 100%;
   height: 2px;
-  background-color: var(--scarlet);
+  background-color: #ff54545f;
+  margin: 5px 0;
 }
 
 .shipping {
@@ -140,11 +203,12 @@
   justify-content: space-between;
   align-items: center;
   & > div:nth-child(1) {
-    font-size: 1.5vw;
+    font-size: 1vw;
+    font-weight: bold;
   }
   & > div:nth-child(2) {
     color: var(--scarlet);
-    font-size: 3vw;
+    font-size: 2vw;
   }
 }
 
@@ -268,8 +332,8 @@
 
 .detailPhoto {
   position: relative;
-  width: 70%;
-  height: 800px;
+  width: 100%;
+  height: 3000px;
   overflow: hidden;
   &::after {
     content: "";
@@ -278,12 +342,16 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%);
+    background: linear-gradient(
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0) 80%,
+      rgba(255, 255, 255, 1) 100%
+    );
   }
 }
 
 .detailPhotoView {
-  width: 70%; /* 컨테이너 전체 폭을 사용 */
+  width: 100%; /* 컨테이너 전체 폭을 사용 */
 }
 
 .wrapper {
@@ -311,18 +379,28 @@
 }
 
 .sellerInfo {
+  position: relative;
   margin-top: 25vh;
-  width: 70%;
-  padding: 5vh 10vh;
-  border: 1px solid var(--scarlet);
+  padding: 40px 0 20px;
+  width: 100%;
+  background-color: rgb(255, 255, 255);
+  &::before {
+    content: "";
+    position: absolute;
+    top: -20px;
+    width: 100%;
+    height: 20px;
+    background-color: rgb(250, 250, 250);
+  }
 }
 
 .sellerTitle {
   position: relative;
-  font-size: 3vh;
+  font-size: 2.5vh;
   font-weight: bold;
-  margin-bottom: 3vh;
-  color: var(--scarlet);
+  margin-bottom: 2vh;
+  color: black;
+  margin-left: 40px;
 
   // &:after {
   //   content: "";
@@ -339,13 +417,16 @@
 
 .sellerItemArea {
   display: flex;
-  padding: 1vh 4vh;
+  gap: 50px;
+  margin-left: 40px;
+  &div:nth-child(1) {
+    color: rgb(128, 128, 128);
+  }
 }
 
 .sellerItem {
   display: flex;
   flex-direction: column;
   margin-bottom: 1vh;
-  flex: 1;
-  gap: 2vh;
+  gap: 1vh;
 }

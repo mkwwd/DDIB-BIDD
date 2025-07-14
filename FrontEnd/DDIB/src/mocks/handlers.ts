@@ -381,37 +381,4 @@ export const handlers = [
       },
     ]);
   }),
-  http.get("/api/product/:productId/:userPk", ({ request, params }) => {
-    const { produtId, userPk } = params;
-    return HttpResponse.json({
-      productId: 1,
-      name: "name3",
-      totalStock: 1000,
-      stock: 1000,
-      eventStartDate: "2024-04-25T14:00:00",
-      eventEndDate: "2024-04-25T17:00:00",
-      eventStartTime: 14,
-      eventEndTime: 17,
-      price: 10000,
-      discount: 10.0,
-      thumbnailImage:
-        "https://iandwe.s3.ap-northeast-2.amazonaws.com/thumbnail/egqHlHZG",
-      category: "Fashion",
-      details: [
-        {
-          productDetailId: 1,
-          imageUrl:
-            "https://iandwe.s3.ap-northeast-2.amazonaws.com/details/hL5SqOBk",
-        },
-      ],
-      likeCount: 1,
-      sellerId: 1,
-      companyName: "joonseong",
-      businessNumber: 101010101,
-      companyPhone: 1043200933,
-      companyEmail: "306yyy@naver.com",
-      over: false,
-      liked: true,
-    });
-  }),
 ];
