@@ -228,7 +228,8 @@
 
 사용자는 상품에 대한 상세 정보 및 해당 기업에 대한 정보를 조회할 수 있다.
 
-![image](https://github.com/gnoesnooj/ddib/assets/91658692/29f8add1-4feb-44a5-b011-f605706217fe)
+![2025-07-17034050-ezgif com-video-to-gif-converter](https://github.com/user-attachments/assets/1ff3c602-4687-4af9-a8bd-22d6b80dfb8b)
+
 
 
 **4️⃣ 상품 좋아요/취소**
