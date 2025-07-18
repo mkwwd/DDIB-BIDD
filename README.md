@@ -216,20 +216,19 @@
 사용자는 오늘의 타임딜과 주간 타임딜, 카테고리별 타임딜 이벤트를 조회할 수 있다.
 ![product](https://github.com/user-attachments/assets/5cad6f95-d92e-4899-9cb2-dc17b06dd13a)
 
-
-**2️⃣ 검색**
-
-사용자는 원하는 타임딜 이벤트를 검색할 수 있다.
-
-![상품_검색](https://github.com/gnoesnooj/ddib/assets/91658692/e726681e-aa94-4adf-b1b6-e8158a5501d3)
-
-
-**3️⃣ 상품 상세 조회**
+**2️⃣ 상품 상세 조회**
 
 사용자는 상품에 대한 상세 정보 및 해당 기업에 대한 정보를 조회할 수 있다.
 
 ![2025-07-17034050-ezgif com-video-to-gif-converter](https://github.com/user-attachments/assets/1ff3c602-4687-4af9-a8bd-22d6b80dfb8b)
 
+
+
+**3️⃣ 검색**
+
+사용자는 원하는 타임딜 이벤트를 검색할 수 있다.
+
+![상품_검색](https://github.com/gnoesnooj/ddib/assets/91658692/e726681e-aa94-4adf-b1b6-e8158a5501d3)
 
 
 **4️⃣ 상품 좋아요/알람**
