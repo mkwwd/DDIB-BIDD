@@ -236,7 +236,7 @@
 
 상품 개별 좋아요를 누르면 해당 상품에 대한 이벤트 시작 12시간 전, 1시간 전에 알림을 받을 수 있다.
 
-![상품_좋아요와_취소](https://github.com/gnoesnooj/ddib/assets/91658692/8e12c811-f3a1-4894-8d60-0353f256a004)
+![2025-07-19041404-ezgif com-video-to-gif-converter](https://github.com/user-attachments/assets/6b42e74a-44a8-476b-abe7-f8b0a5ae4fcd)
 
 
 **5️⃣ 대기열 입장**
