@@ -60,11 +60,12 @@ export const orderAddressStore = create<OrderAddress>((set) => ({
 }));
 
 interface Timer {
-  timerOn: boolean;
-  setTimerOn: (timerstate: boolean) => void;
+  timerOn: { [itemID: number]: boolean };
+  setTimerOn: (itemId: number, timerstate: boolean) => void;
 }
 
 export const timerStore = create<Timer>((set) => ({
-  timerOn: true,
-  setTimerOn: (timerState) => set(() => ({ timerOn: timerState })),
+  timerOn: {},
+  setTimerOn: (itemId, timerState) =>
+    set((state) => ({ timerOn: { ...state.timerOn, [itemId]: timerState } })),
 }));

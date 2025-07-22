@@ -318,6 +318,19 @@ export const handlers = [
       },
     ]);
   }),
+  http.get("/api/notification/:user", ({ request, params }) => {
+    const { pk } = params;
+    return HttpResponse.json([
+      {
+        title:
+          "유세진님이 관심있는 SONY 노이즈 캔슬링 블루투스 헤드폰, 화이트, WH-CH720N의 타임딜이 1시간 남았어요!",
+        content:
+          "1시간 뒤에 DDIB에서 파격적인 가격으로 SONY 노이즈 캔슬링 블루투스 헤드폰, 화이트, WH-CH720N울 구매할 수 있어요!",
+        generatedTime: "2024-04-25T12:00:00",
+        read: false,
+      },
+    ]);
+  }),
   http.get("/api/product/like/user/:user", ({ request, params }) => {
     const { pk } = params;
     return HttpResponse.json([

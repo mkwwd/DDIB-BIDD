@@ -5,10 +5,12 @@ import styles from "./alarm.module.scss";
 import { useQuery } from "@tanstack/react-query";
 import { AlarmList } from "@/app/types/types";
 import Link from "next/link";
-import Cookies from "js-cookie";
+import { useSession } from "next-auth/react";
+import { useEffect, useState } from "react";
 
 export default function Alarm() {
-  const userPk = Cookies.get("num") as string;
+  const { data: session } = useSession();
+  const userPk = session!.user.id;
 
   const { data } = useQuery<AlarmList[]>({
     queryKey: ["orderDetail", userPk],
@@ -21,13 +23,25 @@ export default function Alarm() {
     return day + " " + time;
   };
 
-  const cookie = Cookies.get("fcm");
+  const [alarmCnt, setAlarmCnt] = useState(0);
+
+  useEffect(() => {
+    data?.forEach((data) => {
+      if (data.read != true) {
+        setAlarmCnt((prev) => prev + 1);
+      }
+    });
+
+    console.log(alarmCnt);
+  }, [data]);
+
+  const cookie = session?.user.fcm;
 
   return (
     <div className={styles.container}>
       <div className={styles.alarm}>
         <div>키워드 알람</div>
-        {cookie == "true" ? (
+        {cookie == true ? (
           <div className={styles.on}>ON</div>
         ) : (
           <div className={styles.off}>OFF</div>

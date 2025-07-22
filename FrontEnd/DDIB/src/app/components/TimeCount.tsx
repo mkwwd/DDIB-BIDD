@@ -4,10 +4,11 @@ import { useState, useEffect } from "react";
 import { timerStore } from "@/app/store/product";
 
 interface Props {
+  id: number;
   startTime: string;
 }
 
-export default function TimeCount({ startTime }: Props) {
+export default function TimeCount({ startTime, id }: Props) {
   const [targetTime] = useState<Date>(new Date(startTime));
   const [timeLeft, setTimeLeft] = useState<number>(
     targetTime.getTime() - new Date().getTime()
@@ -19,15 +20,18 @@ export default function TimeCount({ startTime }: Props) {
     console.log(startTime);
     console.log(targetTime.getTime());
     console.log(new Date().getTime());
+
+    setTimerOn(id, true);
     const timerID = setInterval(() => {
       const newTimeLeft = targetTime.getTime() - new Date().getTime();
 
-      if (newTimeLeft <= 0) {
+      if (newTimeLeft <= 1) {
         setTimeLeft(0);
-        setTimerOn(false);
+        setTimerOn(id, false);
         clearInterval(timerID);
       } else {
         setTimeLeft(newTimeLeft);
+        console.log(`[${id}] 작동중`);
       }
     }, 1000);
 
