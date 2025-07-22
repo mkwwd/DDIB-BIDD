@@ -1,13 +1,25 @@
-.joinBuy {
+.joinBuy,
+.waitBuy {
   display: inline-block;
   width: 100%;
   height: 100%;
-  background-color: var(--scarlet);
-  color: white;
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 2vw;
+}
+
+.joinBuy {
+  background-color: var(--scarlet);
+  color: white;
+}
+
+.waitBuy {
+  background-color: #ff545450;
+  // background-color: rgb(183, 183, 183);
+  // color: var(--scarlet);
+  // border: 1px solid var(--scarlet);
+  color: white;
 }
 
 .end {

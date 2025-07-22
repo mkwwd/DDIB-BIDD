@@ -21,7 +21,7 @@ export interface Product {
   eventEndTime: string;
   price: number;
   discount: number;
-  thumbnailImage: string;
+  thumbnailImage: Array<DetailImage>;
   category: string;
   details: Array<DetailImage>;
   likeCount: number;

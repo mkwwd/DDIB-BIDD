@@ -36,7 +36,7 @@ export default function Category({ category }: Props) {
                 key={index}
               >
                 <ProductItem
-                  thumbnailImage={item.thumbnailImage}
+                  thumbnailImage={item.thumbnailImage[0].imageUrl}
                   companyName={item.companyName}
                   name={item.name}
                   eventStartDate={item.eventStartDate}

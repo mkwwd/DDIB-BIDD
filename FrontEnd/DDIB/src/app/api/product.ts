@@ -32,7 +32,7 @@ async function getProductSearch(
   return data;
 }
 
-async function getProductDetail(productId: string, userPk: string) {
+async function getProductDetail(productId: string, userPk: number) {
   const { data } = await api.get(`/api/product/${productId}/${userPk}`);
   console.log("detail", data);
   return data;

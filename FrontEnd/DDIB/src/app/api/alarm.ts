@@ -12,7 +12,7 @@ async function putAlarmOff(userPk: string) {
   await api.put(`/api/notification/subscribe/cancel/${userPk}`);
 }
 
-async function getAlarmList(userPk: string) {
+async function getAlarmList(userPk: number) {
   const { data } = await api.get(`/api/notification/${userPk}`);
   console.log(data);
   return data;

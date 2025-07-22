@@ -29,7 +29,7 @@ export default function ProductDetail() {
 
   const { amount } = amountStore();
   const { setOrderInfo } = orderStore();
-  const userPk = Cookies.get("num") as string;
+  const userPk = session!.user.id;
 
   const { data } = useQuery<ProductInfo>({
     queryKey: ["productInfo", id, userPk],
@@ -43,11 +43,18 @@ export default function ProductDetail() {
   //   test();
   // };
 
-  const joinBuy = () => {
+  const [thumnailUrl, setThumbnailUrl] = useState("");
+
+  const joinBuy = (timerOn: boolean) => {
+    if (timerOn) {
+      alert("아직 타임딜이 오픈되지 않았어요 ㅜㅜ");
+      return;
+    }
+
     if (data) {
       const sendInfo = {
         productId: data.productId,
-        thumbnailImage: data.thumbnailImage,
+        thumbnailImage: data.thumbnailImage[0].imageUrl,
         companyName: data.companyName,
         name: data.name,
         totalAmount: amount,
@@ -68,12 +75,14 @@ export default function ProductDetail() {
 
   useEffect(() => {
     if (!session) {
-      alert("로그인을 먼저 해주세요!!");
-      router.back();
+      //alert("로그인을 먼저 해주세요!!");
+      //router.back();
     } else {
       if (data) {
         const finPrice = getDiscount(data.price, data.discount);
         setSalePrice(finPrice);
+        setThumbnailUrl(data.thumbnailImage[0].imageUrl);
+        console.log(thumnailUrl);
       }
     }
   }, [data]);
@@ -92,17 +101,27 @@ export default function ProductDetail() {
                     </div>
                   </div>
                   <div className={styles.thumbnailContainer}>
-                    <div className={styles.thumbmini}>
-                      <Image
-                        src={data.thumbnailImage}
-                        alt="상품썸네일"
-                        fill
-                        sizes="auto"
-                      ></Image>
+                    <div className={styles.thumbnailMiniArea}>
+                      {data.thumbnailImage.map((image, index) => (
+                        <div
+                          key={index}
+                          className={`${styles.thumbmini} ${
+                            thumnailUrl == image.imageUrl ? styles.choose : ""
+                          }`}
+                          onClick={() => setThumbnailUrl(image.imageUrl)}
+                        >
+                          <Image
+                            src={image.imageUrl}
+                            alt="상품썸네일"
+                            fill
+                            sizes="auto"
+                          ></Image>
+                        </div>
+                      ))}
                     </div>
                     <div className={styles.thumbnailWrapper}>
                       <Image
-                        src={data.thumbnailImage}
+                        src={thumnailUrl}
                         alt="상품썸네일"
                         fill
                         sizes="auto"
@@ -160,38 +179,34 @@ export default function ProductDetail() {
                       </>
                     )}
                   </div>
-                  <div className={styles.sellerInfo}>
-                    <div className={styles.sellerTitle}>Company Info</div>
-                    <div className={styles.sellerItemArea}>
-                      <div className={styles.sellerItem}>
-                        <div>회사명</div>
-                        <div>사업자번호</div>
-                        <div>대표명</div>
-                        <div>대표번호</div>
-                        <div>대표이메일</div>
+                </div>
+                <div className={styles.sellerInfo}>
+                  <div className={styles.sellerTitle}>Company Info</div>
+                  <div className={styles.sellerItemArea}>
+                    <div className={styles.sellerItem}>
+                      <div>회사명</div>
+                      <div>사업자번호</div>
+                      <div>대표명</div>
+                      <div>대표번호</div>
+                      <div>대표이메일</div>
+                    </div>
+                    <div className={styles.sellerItem}>
+                      <div>
+                        {data.companyName.length != 0 ? data.companyName : " "}
                       </div>
-                      <div className={styles.sellerItem}>
-                        <div>
-                          {data.companyName.length != 0
-                            ? data.companyName
-                            : " "}
-                        </div>
-                        <div>
-                          {data.businessNumber != 0 ? data.businessNumber : ""}
-                        </div>
-                        <div>
-                          {data.ceoName.length != 0 ? data.ceoName : " "}
-                        </div>
-                        <div>
-                          {data.companyPhone.length != 0
-                            ? data.companyPhone
-                            : " "}
-                        </div>
-                        <div>
-                          {data.companyEmail.length != 0
-                            ? data.companyEmail
-                            : " "}
-                        </div>
+                      <div>
+                        {data.businessNumber != 0 ? data.businessNumber : ""}
+                      </div>
+                      <div>{data.ceoName.length != 0 ? data.ceoName : " "}</div>
+                      <div>
+                        {data.companyPhone.length != 0
+                          ? data.companyPhone
+                          : " "}
+                      </div>
+                      <div>
+                        {data.companyEmail.length != 0
+                          ? data.companyEmail
+                          : " "}
                       </div>
                     </div>
                   </div>
@@ -227,21 +242,31 @@ export default function ProductDetail() {
                   </div>
                   <div className={styles.btnArea}>
                     <div>
-                      <LikeBtn
-                        productId={data.productId}
-                        like={data.liked}
-                        likeCnt={data.likeCount}
-                      />
-                      <div className={styles.alert}>
-                        좋아요 누르고 오픈 알람받아요~
-                      </div>
+                      {data.stock}개 {data.over ? "남음" : "한정"}
                     </div>
-                    <div>
-                      <EventBtn
-                        joinBuy={joinBuy}
-                        over={data.over}
-                        startTime={data.eventStartDate}
-                      />
+                    <div className={styles.btnContainer}>
+                      <div>
+                        <LikeBtn
+                          productId={data.productId}
+                          like={data.liked}
+                          likeCnt={data.likeCount}
+                        />
+                        {data.liked ? (
+                          ""
+                        ) : (
+                          <div className={styles.alert}>
+                            좋아요 누르고 오픈 알람받아요~
+                          </div>
+                        )}
+                      </div>
+                      <div>
+                        <EventBtn
+                          joinBuy={joinBuy}
+                          over={data.over}
+                          startTime={data.eventStartDate}
+                          id={data.productId}
+                        />
+                      </div>
                     </div>
                   </div>
                 </div>

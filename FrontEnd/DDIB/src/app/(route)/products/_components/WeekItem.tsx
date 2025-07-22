@@ -53,7 +53,12 @@ export default function WeekItem({ checkDay }: Props) {
     }
   }, [swiperInstance]);
 
-  const { timerOn } = timerStore();
+  const timer = timerStore((state) => state.timerOn);
+
+  useEffect(() => {
+    console.log(timer);
+    console.log(timer[1]);
+  }, [timer]);
 
   return (
     <>
@@ -123,9 +128,12 @@ export default function WeekItem({ checkDay }: Props) {
                                 <div className={styles.timeThree}>
                                   타임딜 종료
                                 </div>
-                              ) : timerOn ? (
+                              ) : timer[item.productId] ?? true ? (
                                 <div className={styles.timeOne}>
-                                  <TimeCount startTime={item.eventStartDate} />
+                                  <TimeCount
+                                    startTime={item.eventStartDate}
+                                    id={item.productId}
+                                  />
                                 </div>
                               ) : (
                                 <div className={styles.timeFour}>
@@ -144,13 +152,12 @@ export default function WeekItem({ checkDay }: Props) {
                       <div className={styles.imgContainer}>
                         <div className={styles.wrapper}>
                           <Image
-                            src={item.thumbnailImage}
+                            src={item.thumbnailImage[0].imageUrl}
                             alt="상품썸네일"
                             fill
                             sizes="auto"
                             loading="lazy"
                           ></Image>
-
                           {/* <div className={styles.stock}>
                               {item.stock}개 남음
                             </div> */}

@@ -75,6 +75,7 @@ export default function NavMenu() {
   }, []);
 
   useEffect(() => {
+    if (segment == null) return;
     const handleScroll = () => {
       if (!navRef.current) return;
       //navRef.current.style.background = window.scrollY === 0 ? "" : "#ff5454";
@@ -92,7 +93,7 @@ export default function NavMenu() {
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, []);
+  }, [segment]);
 
   return (
     <>

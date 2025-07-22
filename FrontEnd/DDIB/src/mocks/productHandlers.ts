@@ -5,7 +5,7 @@ export const productHandlers = [
     return HttpResponse.json([
       [
         {
-          productId: 16,
+          productId: 1,
           name: "로지텍 G502 X PLUS 무선 게이밍 마우스, 910-006166, 블랙",
           totalStock: 1000,
           stock: 0,
@@ -15,7 +15,12 @@ export const productHandlers = [
           eventEndTime: 10,
           price: 187000,
           discount: 20.0,
-          thumbnailImage: "/images/logitech_mouse1.jpg",
+          thumbnailImage: [
+            {
+              productDetailId: 1,
+              imageUrl: "/images/logitech_mouse1.jpg",
+            },
+          ],
           category: "Appliance",
           details: [
             {
@@ -32,7 +37,7 @@ export const productHandlers = [
           over: true,
         },
         {
-          productId: 17,
+          productId: 2,
           name: "정샘물 에센셜 스킨 누더 쿠션 14g + 리필 14g, 핑크라이트, 1세트",
           totalStock: 100,
           stock: 100,
@@ -42,7 +47,12 @@ export const productHandlers = [
           eventEndTime: 13,
           price: 45000,
           discount: 35,
-          thumbnailImage: "/images/jungsaemmool1.jpg",
+          thumbnailImage: [
+            {
+              productDetailId: 1,
+              imageUrl: "/images/jungsaemmool1.jpg",
+            },
+          ],
           category: "Beauty",
           details: [
             {
@@ -59,17 +69,22 @@ export const productHandlers = [
           over: false,
         },
         {
-          productId: 16,
+          productId: 3,
           name: "SONY 노이즈 캔슬링 블루투스 헤드폰, 화이트, WH-CH720N",
           totalStock: 50,
           stock: 50,
-          eventStartDate: "2025-04-21T13:00:00",
-          eventEndDate: "2025-04-21T15:00:00",
+          eventStartDate: "2025-07-19T05:14:00",
+          eventEndDate: "2025-07-17T06:00:00",
           eventStartTime: 13,
           eventEndTime: 15,
           price: 199000,
           discount: 20,
-          thumbnailImage: "/images/sony1.jpg",
+          thumbnailImage: [
+            {
+              productDetailId: 16,
+              imageUrl: "/images/sony1.jpg",
+            },
+          ],
           category: "Appliance",
           details: [
             {
@@ -86,7 +101,7 @@ export const productHandlers = [
           over: false,
         },
         {
-          productId: 16,
+          productId: 4,
           name: "LG 그램 15 IPS FHD 화이트 에디션 15ZB995 코어i5-10210U/램16G/SSD512G/인텔UHD/웹캠/무선랜/15.6 IPS FHD/윈도우11 탑",
           totalStock: 50,
           stock: 50,
@@ -113,7 +128,7 @@ export const productHandlers = [
           over: false,
         },
         {
-          productId: 16,
+          productId: 5,
           name: "[NIKE]나이키_여성용_운동화_레볼루션 5_REVOLUTION 5 _BQ3207",
           totalStock: 100,
           stock: 100,
@@ -140,7 +155,7 @@ export const productHandlers = [
           over: false,
         },
         {
-          productId: 20,
+          productId: 6,
           name: "스파이더 프로웹 러닝 후드 집업 자켓 상의",
           totalStock: 400,
           stock: 400,
@@ -169,7 +184,7 @@ export const productHandlers = [
       ],
       [
         {
-          productId: 34,
+          productId: 7,
           name: "시세이도 파란자차 퍼펙트 선 프로텍터 로션 SPF50+ PA++++",
           totalStock: 300,
           stock: 300,
@@ -196,7 +211,7 @@ export const productHandlers = [
           over: false,
         },
         {
-          productId: 21,
+          productId: 8,
           name: "로엠 여성용 데님 자켓",
           totalStock: 200,
           stock: 200,
@@ -223,7 +238,7 @@ export const productHandlers = [
           over: false,
         },
         {
-          productId: 23,
+          productId: 9,
           name: "스와로브스키 여성용 테디하트 목걸이 5642976 +쇼핑백+메시지카드+품질보증서(백화점A/S)",
           totalStock: 60,
           stock: 60,
@@ -250,7 +265,7 @@ export const productHandlers = [
           over: false,
         },
         {
-          productId: 22,
+          productId: 10,
           name: "미쏘 여성용 에어 비스코스 골지 브이넥 긴팔 가디건",
           totalStock: 400,
           stock: 400,
@@ -281,7 +296,7 @@ export const productHandlers = [
       [],
       [
         {
-          productId: 17,
+          productId: 11,
           name: "name3",
           totalStock: 1000,
           stock: 1000,
@@ -308,7 +323,7 @@ export const productHandlers = [
           over: false,
         },
         {
-          productId: 18,
+          productId: 12,
           name: "name3",
           totalStock: 1000,
           stock: 1000,
@@ -335,7 +350,7 @@ export const productHandlers = [
           over: false,
         },
         {
-          productId: 19,
+          productId: 13,
           name: "name3",
           totalStock: 1000,
           stock: 1000,
@@ -371,27 +386,36 @@ export const productHandlers = [
 
     return HttpResponse.json({
       productId: productId,
-      name: "정샘물 에센셜 스킨 누더 쿠션 14g + 리필 14g, 핑크라이트, 1세트",
-      totalStock: 100,
-      stock: 100,
-      eventStartDate: "2025-04-21T11:00:00",
-      eventEndDate: "2025-04-21T13:00:00",
-      eventStartTime: 11,
-      eventEndTime: 13,
-      price: 45000,
-      discount: 35,
-      thumbnailImage: "/images/jungsaemmool1.jpg",
-      category: "Beauty",
+      name: "SONY 노이즈 캔슬링 블루투스 헤드폰, 화이트, WH-CH720N",
+      totalStock: 50,
+      stock: 50,
+      eventStartDate: "2025-07-19T05:14:00",
+      eventEndDate: "2025-07-17T06:00:00",
+      eventStartTime: 13,
+      eventEndTime: 15,
+      price: 199000,
+      discount: 20,
+      thumbnailImage: [
+        {
+          productDetailId: 1,
+          imageUrl: "/images/sony1.jpg",
+        },
+        {
+          productDetailId: 2,
+          imageUrl: "/images/sony2.jpg",
+        },
+      ],
+      category: "Appliance",
       details: [
         {
           productDetailId: 17,
-          imageUrl: "/images/jungsaemmool2.jpg",
+          imageUrl: "/images/sony_detail.jpg",
         },
       ],
-      likeCount: 0,
+      likeCount: 30,
       sellerId: 1,
       ceoName: "김신",
-      companyName: "joonseong",
+      companyName: "SONY",
       businessNumber: 101010101,
       companyPhone: 1043200933,
       companyEmail: "306yyy@naver.com",
