@@ -1,1 +1,3 @@
+*.jsx linguist-language=JavaScript
+*.tsx linguist-language=TypeScript
 *.html linguist-detectable=false
