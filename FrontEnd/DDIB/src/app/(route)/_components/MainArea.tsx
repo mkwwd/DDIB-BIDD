@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import styles from "./mainArea.module.scss";
 import TodayItems from "./TodayItems";
 import { useQuery } from "@tanstack/react-query";
@@ -12,23 +12,22 @@ import { useNavStore } from "@/app/store/navStore";
 export default function MainArea() {
   const [bgColor, setBgColor] = useState<string>("");
   const navRect = useNavStore((state) => state.navRect);
-  const [position, setPosition] = useState({ x: 0, y: 0 });
-  const [isOnNav, setIsOnNav] = useState(false);
+
+  const cursorRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
-      setPosition({ x: e.clientX, y: e.clientY });
-      if (navRect) {
+      if (cursorRef.current) {
         const isInside =
+          navRect &&
           e.clientX >= navRect.left &&
           e.clientX <= navRect.right &&
           e.clientY >= navRect.top &&
           e.clientY <= navRect.bottom;
 
-        setIsOnNav(isInside);
-        if (!isInside) {
-          setPosition({ x: e.clientX, y: e.clientY });
-        }
+        cursorRef.current.style.left = `${e.clientX}px`;
+        cursorRef.current.style.top = `${e.clientY}px`;
+        cursorRef.current.style.display = isInside ? "none" : "block";
       }
     };
 
@@ -59,15 +58,8 @@ export default function MainArea() {
           <TodayItems todayList={data.todayProducts} bgColor={bgColor} />
         </>
       )}
-      <div
-        className={styles.scrollCursor}
-        style={{
-          left: position.x,
-          top: position.y,
-          display: isOnNav ? "none" : "block",
-        }}
-      >
-        <div> Scroll</div>
+      <div ref={cursorRef} className={styles.scrollCursor}>
+        <div>Scroll</div>
       </div>
     </div>
   );
