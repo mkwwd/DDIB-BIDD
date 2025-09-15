@@ -1,4 +1,4 @@
-import { PublicAxiosApi } from "../utils/commons";
+import { PublicAxiosApi } from "../_utils/commons";
 import { AuthOptions } from "next-auth";
 import KakaoProvider from "next-auth/providers/kakao";
 

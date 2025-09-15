@@ -1,5 +1,5 @@
-import { ClientAxiosApi } from "@/app/utils/commons";
-import { OrderInfo } from "../types/types";
+import { ClientAxiosApi } from "@/app/_utils/commons";
+import { OrderInfo } from "../_types/types";
 
 const api = ClientAxiosApi();
 

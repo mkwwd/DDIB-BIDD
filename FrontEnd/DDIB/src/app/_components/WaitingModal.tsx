@@ -4,8 +4,8 @@ import styles from "./waitingModal.module.scss";
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { useQuery } from "@tanstack/react-query";
-import { getWaitingList } from "../api/waiting";
-import { Que } from "@/app/types/types";
+import { getWaitingList } from "../_api/waiting";
+import { Que } from "@/app/_types/types";
 import Cookies from "js-cookie";
 import Lottie from "react-lottie-player";
 

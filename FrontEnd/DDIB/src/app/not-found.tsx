@@ -1,11 +1,15 @@
 "use client";
 
 import Link from "next/link";
-import { NextPage } from "next";
+import dynamic from "next/dynamic";
 import Lottie from "react-lottie-player";
-import not from "./components/notfound.json";
+import not from "./_components/notfound.json";
 
-const NotFound: NextPage = () => {
+const NotFound = () => {
+  const LottiePlayer = dynamic(() => import("react-lottie-player"), {
+    ssr: false,
+  });
+
   return (
     <div
       style={{
@@ -19,7 +23,7 @@ const NotFound: NextPage = () => {
         존재하지 않는 페이지 입니다.
       </div>
       <div>
-        <Lottie
+        <LottiePlayer
           loop
           animationData={not}
           play

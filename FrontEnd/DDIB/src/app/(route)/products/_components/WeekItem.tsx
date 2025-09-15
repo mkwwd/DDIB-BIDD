@@ -1,5 +1,6 @@
 "use client";
 
+import dynamic from "next/dynamic";
 import styles from "./weekItem.module.scss";
 import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -9,21 +10,25 @@ import "swiper/css/pagination";
 import { Pagination, EffectFade, Mousewheel } from "swiper/modules";
 import Link from "next/link";
 import { useQuery } from "@tanstack/react-query";
-import { getProductWeek } from "@/app/api/product";
-import { Product } from "@/app/types/types";
+import { getProductWeek } from "@/app/_api/product";
+import { Product } from "@/app/_types/types";
 import { useState, useEffect, useRef } from "react";
-import { getDiscount } from "@/app/utils/commonFunction";
-import TimeCount from "@/app/components/TimeCount";
+import { getDiscount } from "@/app/_utils/commonFunction";
+import TimeCount from "@/app/_components/TimeCount";
 import Lottie from "react-lottie-player";
-import noProduct from "@/app/components/noProduct.json";
+import noProduct from "@/app/_components/noProduct.json";
 import { PiTimerBold } from "react-icons/pi";
-import { timerStore } from "@/app/store/product";
+import { timerStore } from "@/app/_store/product";
 
 interface Props {
   checkDay: number;
 }
 
 export default function WeekItem({ checkDay }: Props) {
+  const LottiePlayer = dynamic(() => import("react-lottie-player"), {
+    ssr: false,
+  });
+
   const { data } = useQuery<Product[][]>({
     queryKey: ["weekList"],
     queryFn: () => getProductWeek(),
@@ -176,7 +181,7 @@ export default function WeekItem({ checkDay }: Props) {
         ) : (
           <div className={styles.noItem}>
             <div className={styles.noItemText}>NO</div>
-            <Lottie
+            <LottiePlayer
               loop
               animationData={noProduct}
               play

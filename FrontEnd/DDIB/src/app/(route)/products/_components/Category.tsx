@@ -1,20 +1,25 @@
 "use client";
 
-import ProductItem from "@/app/components/ProductItem";
+import ProductItem from "@/app/_components/ProductItem";
 import styles from "./category.module.scss";
 import Link from "next/link";
 import { useQuery } from "@tanstack/react-query";
-import { Product } from "@/app/types/types";
-import { getProductSearch } from "@/app/api/product";
+import { Product } from "@/app/_types/types";
+import { getProductSearch } from "@/app/_api/product";
 import { useEffect } from "react";
 import Lottie from "react-lottie-player";
-import noProduct2 from "@/app/components/noProduct2.json";
+import noProduct2 from "@/app/_components/noProduct2.json";
+import dynamic from "next/dynamic";
 
 interface Props {
   category: string;
 }
 
 export default function Category({ category }: Props) {
+  const LottiePlayer = dynamic(() => import("react-lottie-player"), {
+    ssr: false,
+  });
+
   const { data } = useQuery<Product[]>({
     queryKey: ["category", category],
     queryFn: () => getProductSearch("", category, "false"),
@@ -55,7 +60,7 @@ export default function Category({ category }: Props) {
       ) : (
         <div className={styles.noItem}>
           {/* <div className={styles.noItemText}>NO</div> */}
-          <Lottie
+          <LottiePlayer
             loop
             animationData={noProduct2}
             play

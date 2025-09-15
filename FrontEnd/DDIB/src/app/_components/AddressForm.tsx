@@ -12,9 +12,9 @@ import styles from "./addressForm.module.scss";
 import { FaCheckCircle } from "react-icons/fa";
 import { FaRegCheckCircle } from "react-icons/fa";
 import { useDaumPostcodePopup } from "react-daum-postcode";
-import { orderAddressStore } from "@/app/store/product";
-import { userStore } from "@/app/store/user";
-import { OrderAddressInfo } from "../types/types";
+import { orderAddressStore } from "@/app/_store/product";
+import { userStore } from "@/app/_store/user";
+import { OrderAddressInfo } from "../_types/types";
 
 interface ChildProps {
   type: string;

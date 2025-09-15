@@ -1,7 +1,7 @@
 import { ReactNode, useEffect, useRef } from "react";
-import NavMenu from "@/app/components/NavMenu";
+import NavMenu from "@/app/_components/NavMenu";
 import styles from "./layout.module.scss";
-import RQProvider from "@/app/components/RQProvider";
+import RQProvider from "@/app/_components/RQProvider";
 
 type Props = { children: ReactNode; modal: ReactNode };
 

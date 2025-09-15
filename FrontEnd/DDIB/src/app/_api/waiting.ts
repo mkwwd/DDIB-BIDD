@@ -1,4 +1,4 @@
-import { ClientAxiosApi } from "@/app/utils/commons";
+import { ClientAxiosApi } from "@/app/_utils/commons";
 
 const api = ClientAxiosApi();
 

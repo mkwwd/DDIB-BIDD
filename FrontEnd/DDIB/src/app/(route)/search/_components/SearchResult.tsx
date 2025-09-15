@@ -1,10 +1,10 @@
 "use client";
 
 import { useQuery } from "@tanstack/react-query";
-import { getProductSearch } from "@/app/api/product";
-import { Product } from "@/app/types/types";
+import { getProductSearch } from "@/app/_api/product";
+import { Product } from "@/app/_types/types";
 import Link from "next/link";
-import ProductItem from "@/app/components/ProductItem";
+import ProductItem from "@/app/_components/ProductItem";
 import styles from "./searchResult.module.scss";
 
 interface Props {

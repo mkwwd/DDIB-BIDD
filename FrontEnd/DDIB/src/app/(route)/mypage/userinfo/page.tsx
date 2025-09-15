@@ -1,18 +1,18 @@
 "use client";
 
-import AddressForm from "@/app/components/AddressForm";
+import AddressForm from "@/app/_components/AddressForm";
 import styles from "./userInfo.module.scss";
 import { useMutation, useQuery } from "@tanstack/react-query";
-import { deleteUser, putUserInfo, getUserInfo } from "@/app/api/user";
-import SetUserInfo from "@/app/components/SetUserInfo";
+import { deleteUser, putUserInfo, getUserInfo } from "@/app/_api/user";
+import SetUserInfo from "@/app/_components/SetUserInfo";
 import Apply from "@/app/(route)/mypage/userinfo/_components/Apply";
 import Cookies from "js-cookie";
 import { useRef, useEffect } from "react";
-import { RefProps } from "@/app/components/AddressForm";
+import { RefProps } from "@/app/_components/AddressForm";
 import { useRouter } from "next/navigation";
-import { orderAddressStore } from "@/app/store/product";
-import { User, UserModi } from "@/app/types/types";
-import { userStore } from "@/app/store/user";
+import { orderAddressStore } from "@/app/_store/product";
+import { User, UserModi } from "@/app/_types/types";
+import { userStore } from "@/app/_store/user";
 
 export default function UserInfo() {
   const { setUserInfo } = userStore();

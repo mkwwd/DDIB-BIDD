@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
-import NavMenu from "@/app/components/NavMenu";
+import NavMenu from "@/app/_components/NavMenu";
 import styles from "./layout.module.scss";
-import RQProvider from "../components/RQProvider";
+import RQProvider from "../_components/RQProvider";
 
 type Props = { children: ReactNode };
 

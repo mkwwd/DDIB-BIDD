@@ -1,8 +1,8 @@
 "use client";
 
 import styles from "./eventBtn.module.scss";
-import TimeCount from "@/app/components/TimeCount";
-import { timerStore } from "@/app/store/product";
+import TimeCount from "@/app/_components/TimeCount";
+import { timerStore } from "@/app/_store/product";
 
 interface Props {
   joinBuy: (status: boolean) => void;
