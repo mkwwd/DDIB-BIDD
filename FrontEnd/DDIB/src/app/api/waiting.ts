@@ -15,7 +15,7 @@ async function test() {
   console.log(data);
 }
 
-async function listIn(pk: string) {
+async function listIn(pk: number) {
   console.log("bbbb");
   await api.get(`/api/v1/queue?user_id=1`);
 }

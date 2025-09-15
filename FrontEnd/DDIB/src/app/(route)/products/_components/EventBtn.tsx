@@ -5,7 +5,7 @@ import TimeCount from "@/app/components/TimeCount";
 import { timerStore } from "@/app/store/product";
 
 interface Props {
-  joinBuy: () => void;
+  joinBuy: (status: boolean) => void;
   over: boolean;
   startTime: string;
   id: number;

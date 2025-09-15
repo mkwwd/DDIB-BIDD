@@ -37,9 +37,10 @@ export default function SearchResult({ keyword, category, over }: Props) {
                 key={index}
               >
                 <ProductItem
-                  thumbnailImage={item.thumbnailImage}
+                  thumbnailImage={item.thumbnailImage[0].imageUrl}
                   companyName={item.companyName}
                   name={item.name}
+                  eventStartDate={item.eventStartDate}
                   eventStartTime={item.eventStartTime}
                   eventEndTime={item.eventEndTime}
                   price={item.price}
