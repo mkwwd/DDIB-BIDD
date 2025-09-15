@@ -116,15 +116,19 @@ export default function NavMenu() {
             )}
           </Link>
         </li>
-        <li>
-          <Link href="https://bidd.kro.kr">
+        <li
+          onClick={() => {
+            alert(
+              "BIDD은 현재 서비스 점검 중 입니다ㅠㅠㅜ 조금만 기다려 주세요 :) "
+            );
+          }}
+          style={{ cursor: "pointer" }}
+        >
+          {/* <Link href="https://bidd.kro.kr">
             <div className={styles.subTitle} style={{ paddingRight: "1.5vw" }}>
               <div>BIDD</div>
-              {/* <div className={styles.goIcon}>
-                <HiArrowTopRightOnSquare />
-              </div> */}
             </div>
-          </Link>
+          </Link> */}
         </li>
         <li className={styles.search}>
           <Link href="/search">
