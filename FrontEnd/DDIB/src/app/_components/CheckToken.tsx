@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
-import { userStore } from "../store/user";
+import { userStore } from "../_store/user";
 import Cookies from "js-cookie";
 
 export default function CheckToken() {

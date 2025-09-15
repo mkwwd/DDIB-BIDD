@@ -1,9 +1,9 @@
 "use client";
 
-import { getAlarmList } from "@/app/api/alarm";
+import { getAlarmList } from "@/app/_api/alarm";
 import styles from "./alarm.module.scss";
 import { useQuery } from "@tanstack/react-query";
-import { AlarmList } from "@/app/types/types";
+import { AlarmList } from "@/app/_types/types";
 import Link from "next/link";
 import { useSession } from "next-auth/react";
 import { useEffect, useState } from "react";

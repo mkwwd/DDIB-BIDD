@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.scss";
-import { MSWComponent } from "./components/MSWComponent";
+import { MSWComponent } from "./_components/MSWComponent";
 import { SessionProvider } from "next-auth/react";
 import { NextAuthProvider } from "./provider";
 

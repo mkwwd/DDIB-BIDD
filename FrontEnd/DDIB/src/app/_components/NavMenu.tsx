@@ -4,7 +4,7 @@ import styles from "./navMenu.module.scss";
 import { useSelectedLayoutSegment } from "next/navigation";
 import Link from "next/link";
 import React, { useState, useRef, useEffect } from "react";
-import { userStore } from "../store/user";
+import { userStore } from "../_store/user";
 import { IoSearch } from "react-icons/io5";
 import { IoSearchOutline } from "react-icons/io5";
 import { GoBell } from "react-icons/go";
@@ -14,9 +14,9 @@ import { GoPersonFill } from "react-icons/go";
 import Alarm from "./Alarm";
 import Cookies from "js-cookie";
 import { useMutation } from "@tanstack/react-query";
-import { postUser } from "@/app/api/user";
+import { postUser } from "@/app/_api/user";
 import { useRouter } from "next/navigation";
-import { useNavStore } from "../store/navStore";
+import { useNavStore } from "../_store/navStore";
 import { useSession, signIn, signOut } from "next-auth/react";
 
 export default function NavMenu() {

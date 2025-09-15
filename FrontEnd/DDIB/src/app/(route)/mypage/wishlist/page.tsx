@@ -1,12 +1,12 @@
 "use client";
 
-import ProductItem from "@/app/components/ProductItem";
+import ProductItem from "@/app/_components/ProductItem";
 import Link from "next/link";
 import styles from "./wishList.module.scss";
 import { useQuery } from "@tanstack/react-query";
-import { getWishList } from "@/app/api/product";
-import { userStore } from "@/app/store/user";
-import { Product } from "@/app/types/types";
+import { getWishList } from "@/app/_api/product";
+import { userStore } from "@/app/_store/user";
+import { Product } from "@/app/_types/types";
 import Cookies from "js-cookie";
 
 export default function WishList() {

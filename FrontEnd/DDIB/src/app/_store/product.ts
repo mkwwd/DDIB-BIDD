@@ -1,6 +1,6 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
-import { OrderAddressInfo, OrderProduct } from "@/app/types/types";
+import { OrderAddressInfo, OrderProduct } from "@/app/_types/types";
 import { truncateSync } from "fs";
 
 interface Amount {

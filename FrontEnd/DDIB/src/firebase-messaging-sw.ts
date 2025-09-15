@@ -1,7 +1,7 @@
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import { getMessaging, getToken, onMessage } from "firebase/messaging";
-import { PublicAxiosApi, ClientAxiosApi } from "./app/utils/commons";
+import { PublicAxiosApi, ClientAxiosApi } from "./app/_utils/commons";
 import Cookies from "js-cookie";
 
 const api = ClientAxiosApi();

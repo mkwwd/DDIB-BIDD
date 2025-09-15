@@ -1,10 +1,10 @@
 "use client";
 
-import ProductOrdered from "@/app/components/ProductOrdered";
+import ProductOrdered from "@/app/_components/ProductOrdered";
 import styles from "./orderForm.module.scss";
 import AddressForm, { RefProps } from "./AddressForm";
-import { orderStore, orderAddressStore } from "@/app/store/product";
-import { userStore } from "@/app/store/user";
+import { orderStore, orderAddressStore } from "@/app/_store/product";
+import { userStore } from "@/app/_store/user";
 import { FaDotCircle } from "react-icons/fa";
 import { FaRegDotCircle } from "react-icons/fa";
 import { useRouter } from "next/navigation";
@@ -12,8 +12,8 @@ import { useState, useRef } from "react";
 import Image from "next/image";
 import kakao from "../../../public/kakaopay.svg";
 import { useMutation } from "@tanstack/react-query";
-import { postReady, putCancelPay } from "../api/pay";
-import { OrderInfo } from "@/app/types/types";
+import { postReady, putCancelPay } from "../_api/pay";
+import { OrderInfo } from "@/app/_types/types";
 import Cookies from "js-cookie";
 import SetUserInfo from "./SetUserInfo";
 

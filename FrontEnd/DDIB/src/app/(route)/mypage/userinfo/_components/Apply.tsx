@@ -2,9 +2,9 @@
 
 import styles from "./apply.module.scss";
 import { useEffect, useState } from "react";
-import { putAlarmOff, putAlarmOn, getAlarmCategory } from "@/app/api/alarm";
+import { putAlarmOff, putAlarmOn, getAlarmCategory } from "@/app/_api/alarm";
 import { useMutation, useQuery } from "@tanstack/react-query";
-import { AlarmApply } from "@/app/types/types";
+import { AlarmApply } from "@/app/_types/types";
 import Cookies from "js-cookie";
 
 export default function Apply() {

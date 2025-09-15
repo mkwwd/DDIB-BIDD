@@ -2,9 +2,9 @@ import Image from "next/image";
 import styles from "./page.module.scss";
 
 import Cookies from "js-cookie";
-import GetAlarmToken from "../components/GetAlarmToken";
+import GetAlarmToken from "../_components/GetAlarmToken";
 import MainArea from "./_components/MainArea";
-import SetUserInfo from "../components/SetUserInfo";
+import SetUserInfo from "../_components/SetUserInfo";
 
 export default function Home() {
   const cookie = Cookies.get("fcm");

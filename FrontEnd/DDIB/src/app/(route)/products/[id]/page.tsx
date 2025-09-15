@@ -1,24 +1,25 @@
 "use client";
+export const dynamic = "force-dynamic";
 
 import styles from "./productDetail.module.scss";
 import Image from "next/image";
 import { useState, useEffect } from "react";
 import { useRouter, useParams } from "next/navigation";
-import { ProductInfo } from "@/app/types/types";
+import { ProductInfo } from "@/app/_types/types";
 import { TfiArrowCircleDown } from "react-icons/tfi";
 import { TfiArrowCircleUp } from "react-icons/tfi";
 import { AiFillShop } from "react-icons/ai";
 import { LiaShippingFastSolid } from "react-icons/lia";
-import TimeCount from "@/app/components/TimeCount";
-import AmountBtn from "@/app/components/AmountBtn";
-import { amountStore, orderStore } from "@/app/store/product";
-import { listIn, test } from "@/app/api/waiting";
+import TimeCount from "@/app/_components/TimeCount";
+import AmountBtn from "@/app/_components/AmountBtn";
+import { amountStore, orderStore } from "@/app/_store/product";
+import { listIn, test } from "@/app/_api/waiting";
 import { useQuery } from "@tanstack/react-query";
-import { getProductDetail } from "@/app/api/product";
+import { getProductDetail } from "@/app/_api/product";
 import EventBtn from "@/app/(route)/products/_components/EventBtn";
 import LikeBtn from "../_components/LikeBtn";
 import Cookies from "js-cookie";
-import { getDiscount } from "@/app/utils/commonFunction";
+import { getDiscount } from "@/app/_utils/commonFunction";
 import { useSession } from "next-auth/react";
 
 export default function ProductDetail() {
