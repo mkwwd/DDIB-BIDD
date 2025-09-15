@@ -88,7 +88,7 @@ export default function TodayItems({ todayList, bgColor }: Props) {
                         {`${item.eventStartTime}`.padStart(2, "0")}:00
                       </div>
                       <Image
-                        src={item.thumbnailImage}
+                        src={item.thumbnailImage[0].imageUrl}
                         alt="상품썸네일"
                         fill
                         sizes="auto"

@@ -18,7 +18,12 @@ export const categoryHandlers = [
           eventEndTime: 17,
           price: 102100,
           discount: 20,
-          thumbnailImage: "/images/nike1.jpg",
+          thumbnailImage: [
+            {
+              productDetailId: 16,
+              imageUrl: "/images/nike1.jpg",
+            },
+          ],
           category: "Fashion",
           details: [
             {
@@ -45,7 +50,12 @@ export const categoryHandlers = [
           eventEndTime: 17,
           price: 179000,
           discount: 30.0,
-          thumbnailImage: "/images/spider1.jpg",
+          thumbnailImage: [
+            {
+              productDetailId: 16,
+              imageUrl: "/images/spider1.jpg",
+            },
+          ],
           category: "Fashion",
           details: [
             {
@@ -72,7 +82,12 @@ export const categoryHandlers = [
           eventEndTime: 17,
           price: 79900,
           discount: 10,
-          thumbnailImage: "/images/roem.png",
+          thumbnailImage: [
+            {
+              productDetailId: 16,
+              imageUrl: "/images/roem.jpg",
+            },
+          ],
           category: "Fashion",
           details: [
             {
@@ -99,7 +114,12 @@ export const categoryHandlers = [
           eventEndTime: 17,
           price: 49900,
           discount: 40.0,
-          thumbnailImage: "/images/cross.png",
+          thumbnailImage: [
+            {
+              productDetailId: 16,
+              imageUrl: "/images/cross.jpg",
+            },
+          ],
           category: "Fashion",
           details: [
             {
@@ -126,7 +146,12 @@ export const categoryHandlers = [
           eventEndTime: 17,
           price: 95400,
           discount: 10,
-          thumbnailImage: "/images/covernat.png",
+          thumbnailImage: [
+            {
+              productDetailId: 16,
+              imageUrl: "/images/covernat.png",
+            },
+          ],
           category: "Fashion",
           details: [
             {
@@ -180,7 +205,12 @@ export const categoryHandlers = [
           eventEndTime: 17,
           price: 229000,
           discount: 34.0,
-          thumbnailImage: "/images/samsonite.png",
+          thumbnailImage: [
+            {
+              productDetailId: 16,
+              imageUrl: "/images/samsonite.png",
+            },
+          ],
           category: "Fashion",
           details: [
             {
@@ -207,7 +237,12 @@ export const categoryHandlers = [
           eventEndTime: 17,
           price: 219000,
           discount: 10,
-          thumbnailImage: "/images/swarovski.png",
+          thumbnailImage: [
+            {
+              productDetailId: 16,
+              imageUrl: "/images/swarovski.png",
+            },
+          ],
           category: "Fashion",
           details: [
             {
@@ -239,7 +274,12 @@ export const categoryHandlers = [
           eventEndTime: 13,
           price: 45000,
           discount: 35,
-          thumbnailImage: "/images/jungsaemmool1.jpg",
+          thumbnailImage: [
+            {
+              productDetailId: 16,
+              imageUrl: "/images/jungsaemool1.jpg",
+            },
+          ],
           category: "Beauty",
           details: [
             {
@@ -266,7 +306,12 @@ export const categoryHandlers = [
           eventEndTime: 17,
           price: 16000,
           discount: 56,
-          thumbnailImage: "/images/bouquet.png",
+          thumbnailImage: [
+            {
+              productDetailId: 16,
+              imageUrl: "/images/bouquet.png",
+            },
+          ],
           category: "Beauty",
           details: [
             {
@@ -293,7 +338,12 @@ export const categoryHandlers = [
           eventEndTime: 17,
           price: 200000,
           discount: 38,
-          thumbnailImage: "/images/estee.png",
+          thumbnailImage: [
+            {
+              productDetailId: 16,
+              imageUrl: "/images/estee.png",
+            },
+          ],
           category: "Beauty",
           details: [
             {
@@ -320,7 +370,12 @@ export const categoryHandlers = [
           eventEndTime: 17,
           price: 162000,
           discount: 15,
-          thumbnailImage: "/images/jomalone.png",
+          thumbnailImage: [
+            {
+              productDetailId: 16,
+              imageUrl: "/images/jomalone.png",
+            },
+          ],
           category: "Beauty",
           details: [
             {
@@ -347,7 +402,12 @@ export const categoryHandlers = [
           eventEndTime: 17,
           price: 245000,
           discount: 12,
-          thumbnailImage: "/images/santa.png",
+          thumbnailImage: [
+            {
+              productDetailId: 16,
+              imageUrl: "/images/santa.png",
+            },
+          ],
           category: "Beauty",
           details: [
             {
@@ -374,7 +434,12 @@ export const categoryHandlers = [
           eventEndTime: 17,
           price: 67000,
           discount: 15,
-          thumbnailImage: "/images/shiseido.png",
+          thumbnailImage: [
+            {
+              productDetailId: 16,
+              imageUrl: "/images/shiseido.png",
+            },
+          ],
           category: "Beauty",
           details: [
             {
@@ -401,7 +466,12 @@ export const categoryHandlers = [
           eventEndTime: 17,
           price: 12000,
           discount: 60,
-          thumbnailImage: "/images/dressroom.png",
+          thumbnailImage: [
+            {
+              productDetailId: 16,
+              imageUrl: "/images/dressroom.png",
+            },
+          ],
           category: "Beauty",
           details: [
             {
@@ -428,7 +498,12 @@ export const categoryHandlers = [
           eventEndTime: 17,
           price: 36000,
           discount: 20,
-          thumbnailImage: "/images/mac.png",
+          thumbnailImage: [
+            {
+              productDetailId: 16,
+              imageUrl: "/images/mac.png",
+            },
+          ],
           category: "Beauty",
           details: [
             {
@@ -463,7 +538,12 @@ export const categoryHandlers = [
         eventEndTime: 10,
         price: 187000,
         discount: 20.0,
-        thumbnailImage: "/images/logitech_mouse1.jpg",
+        thumbnailImage: [
+          {
+            productDetailId: 16,
+            imageUrl: "/images/logitech_mouse1.jpg",
+          },
+        ],
         category: "Appliance",
         details: [
           {
@@ -490,7 +570,12 @@ export const categoryHandlers = [
         eventEndTime: 13,
         price: 45000,
         discount: 35,
-        thumbnailImage: "/images/jungsaemmool1.jpg",
+        thumbnailImage: [
+          {
+            productDetailId: 16,
+            imageUrl: "/images/jungsaemmool1.jpg",
+          },
+        ],
         category: "Beauty",
         details: [
           {
@@ -517,7 +602,12 @@ export const categoryHandlers = [
         eventEndTime: 15,
         price: 199000,
         discount: 20,
-        thumbnailImage: "/images/sony1.jpg",
+        thumbnailImage: [
+          {
+            productDetailId: 16,
+            imageUrl: "/images/sony1.jpg",
+          },
+        ],
         category: "Appliance",
         details: [
           {
@@ -544,7 +634,12 @@ export const categoryHandlers = [
         eventEndTime: 17,
         price: 898000,
         discount: 20,
-        thumbnailImage: "/images/lg1.png",
+        thumbnailImage: [
+          {
+            productDetailId: 16,
+            imageUrl: "/images/lg1.png",
+          },
+        ],
         category: "Appliance",
         details: [
           {
@@ -571,7 +666,12 @@ export const categoryHandlers = [
         eventEndTime: 20,
         price: 102100,
         discount: 15,
-        thumbnailImage: "/images/nike1.jpg",
+        thumbnailImage: [
+          {
+            productDetailId: 16,
+            imageUrl: "/images/nike1.jpg",
+          },
+        ],
         category: "Fashion",
         details: [
           {
@@ -598,7 +698,12 @@ export const categoryHandlers = [
         eventEndTime: 23,
         price: 179000,
         discount: 30.0,
-        thumbnailImage: "/images/spider1.jpg",
+        thumbnailImage: [
+          {
+            productDetailId: 16,
+            imageUrl: "/images/spider1.jpg",
+          },
+        ],
         category: "Fashion",
         details: [
           {
@@ -625,7 +730,12 @@ export const categoryHandlers = [
         eventEndTime: 17,
         price: 179000,
         discount: 30.0,
-        thumbnailImage: "/images/spider1.jpg",
+        thumbnailImage: [
+          {
+            productDetailId: 16,
+            imageUrl: "/images/spider1.jpg",
+          },
+        ],
         category: "Fashion",
         details: [
           {
@@ -652,7 +762,12 @@ export const categoryHandlers = [
         eventEndTime: 13,
         price: 67000,
         discount: 15,
-        thumbnailImage: "/images/shiseido.png",
+        thumbnailImage: [
+          {
+            productDetailId: 16,
+            imageUrl: "/images/shiseido.png",
+          },
+        ],
         category: "Beauty",
         details: [
           {
@@ -679,7 +794,12 @@ export const categoryHandlers = [
         eventEndTime: 16,
         price: 79900,
         discount: 10,
-        thumbnailImage: "/images/roem.png",
+        thumbnailImage: [
+          {
+            productDetailId: 16,
+            imageUrl: "/images/roem.png",
+          },
+        ],
         category: "Fashion",
         details: [
           {
@@ -706,7 +826,12 @@ export const categoryHandlers = [
         eventEndTime: 20,
         price: 219000,
         discount: 10,
-        thumbnailImage: "/images/swarovski.png",
+        thumbnailImage: [
+          {
+            productDetailId: 16,
+            imageUrl: "/images/swarovski.png",
+          },
+        ],
         category: "Fashion",
         details: [
           {
@@ -733,7 +858,12 @@ export const categoryHandlers = [
         eventEndTime: 23,
         price: 39900,
         discount: 50,
-        thumbnailImage: "/images/mixxo.jpg",
+        thumbnailImage: [
+          {
+            productDetailId: 16,
+            imageUrl: "/images/mixxo.jpg",
+          },
+        ],
         category: "Fashion",
         details: [
           {
@@ -760,7 +890,12 @@ export const categoryHandlers = [
         eventEndTime: 17,
         price: 49900,
         discount: 40.0,
-        thumbnailImage: "/images/cross.png",
+        thumbnailImage: [
+          {
+            productDetailId: 16,
+            imageUrl: "/images/cross.png",
+          },
+        ],
         category: "Fashion",
         details: [
           {
@@ -787,7 +922,12 @@ export const categoryHandlers = [
         eventEndTime: 17,
         price: 95400,
         discount: 10,
-        thumbnailImage: "/images/covernat.png",
+        thumbnailImage: [
+          {
+            productDetailId: 16,
+            imageUrl: "/images/covernat.png",
+          },
+        ],
         category: "Fashion",
         details: [
           {
@@ -814,7 +954,12 @@ export const categoryHandlers = [
         eventEndTime: 17,
         price: 229000,
         discount: 34.0,
-        thumbnailImage: "/images/samsonite.png",
+        thumbnailImage: [
+          {
+            productDetailId: 16,
+            imageUrl: "/images/samsonite.png",
+          },
+        ],
         category: "Fashion",
         details: [
           {
@@ -841,7 +986,12 @@ export const categoryHandlers = [
         eventEndTime: 17,
         price: 16000,
         discount: 56,
-        thumbnailImage: "/images/bouquet.png",
+        thumbnailImage: [
+          {
+            productDetailId: 16,
+            imageUrl: "/images/bouquet.png",
+          },
+        ],
         category: "Beauty",
         details: [
           {
@@ -868,7 +1018,12 @@ export const categoryHandlers = [
         eventEndTime: 17,
         price: 200000,
         discount: 38,
-        thumbnailImage: "/images/estee.png",
+        thumbnailImage: [
+          {
+            productDetailId: 16,
+            imageUrl: "/images/estee.png",
+          },
+        ],
         category: "Beauty",
         details: [
           {
@@ -895,7 +1050,12 @@ export const categoryHandlers = [
         eventEndTime: 17,
         price: 162000,
         discount: 15,
-        thumbnailImage: "/images/jomalone.png",
+        thumbnailImage: [
+          {
+            productDetailId: 16,
+            imageUrl: "/images/jomalone.png",
+          },
+        ],
         category: "Beauty",
         details: [
           {
@@ -922,7 +1082,12 @@ export const categoryHandlers = [
         eventEndTime: 17,
         price: 245000,
         discount: 12,
-        thumbnailImage: "/images/santa.png",
+        thumbnailImage: [
+          {
+            productDetailId: 16,
+            imageUrl: "/images/santa.png",
+          },
+        ],
         category: "Beauty",
         details: [
           {
@@ -949,7 +1114,12 @@ export const categoryHandlers = [
         eventEndTime: 17,
         price: 12000,
         discount: 60,
-        thumbnailImage: "/images/dressroom.png",
+        thumbnailImage: [
+          {
+            productDetailId: 16,
+            imageUrl: "/images/dressroom.png",
+          },
+        ],
         category: "Beauty",
         details: [
           {
@@ -976,7 +1146,12 @@ export const categoryHandlers = [
         eventEndTime: 17,
         price: 36000,
         discount: 20,
-        thumbnailImage: "/images/mac.png",
+        thumbnailImage: [
+          {
+            productDetailId: 16,
+            imageUrl: "/images/mac.png",
+          },
+        ],
         category: "Beauty",
         details: [
           {

@@ -1,6 +1,6 @@
 .container {
   width: 100%;
-  padding: 10% 15%;
+  padding: 8% 15%;
   display: flex;
   flex-direction: column;
   background-image: url("../../../../public/images/fog6.png"),
@@ -12,16 +12,22 @@
   background-attachment: fixed;
 }
 
+@media (max-width: 768px) {
+  .container {
+    padding: 15% 2%;
+  }
+}
+
 .title,
 .titleTwo {
-  font-size: 12vh;
+  font-size: clamp(50px, 5vw, 90px);
   font-family: "Oooh Baby";
   color: var(--scarlet);
-  margin-bottom: 2vw;
+  margin-bottom: 1vh;
 }
 
 .sectionTwo {
-  margin-top: 10vh;
+  margin-top: 30px;
 }
 
 .titleTwo {

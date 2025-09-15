@@ -1,15 +1,16 @@
 .container {
   display: flex;
   justify-content: space-between;
-  margin-top: 4vh;
+  margin-top: 20px;
 }
 
 .dayBox {
   cursor: pointer;
   position: relative;
   text-align: center;
-  width: 4vw;
+  width: 10%;
   padding-bottom: 1vh;
+  font-size: clamp(14px, 1.5vw, 30px);
 }
 
 .sun {
@@ -21,7 +22,6 @@
 }
 
 .dayNum {
-  font-size: 1.5vw;
   font-weight: bold;
 }
 
