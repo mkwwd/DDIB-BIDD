@@ -49,11 +49,14 @@
 
 .timedeal {
   display: flex;
+  width: fit-content;
   gap: 5px;
-  color: var(--scarlet);
-  font-weight: 700;
-  font-size: 1.5vw;
+  background-color: var(--scarlet);
+  color: white;
+  font-size: 1vw;
   margin-top: 0.5vw;
+  padding: 10px 15px;
+  border-radius: 20px;
 }
 
 .priceArea {

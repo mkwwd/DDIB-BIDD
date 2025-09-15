@@ -111,7 +111,12 @@ export const productHandlers = [
           eventEndTime: 17,
           price: 898000,
           discount: 20,
-          thumbnailImage: "/images/lg1.png",
+          thumbnailImage: [
+            {
+              productDetailId: 16,
+              imageUrl: "/images/lg1.png",
+            },
+          ],
           category: "Appliance",
           details: [
             {
@@ -138,7 +143,12 @@ export const productHandlers = [
           eventEndTime: 20,
           price: 102100,
           discount: 15,
-          thumbnailImage: "/images/nike1.jpg",
+          thumbnailImage: [
+            {
+              productDetailId: 16,
+              imageUrl: "/images/nike1.jpg",
+            },
+          ],
           category: "Fashion",
           details: [
             {
@@ -165,7 +175,12 @@ export const productHandlers = [
           eventEndTime: 23,
           price: 179000,
           discount: 30.0,
-          thumbnailImage: "/images/spider1.jpg",
+          thumbnailImage: [
+            {
+              productDetailId: 16,
+              imageUrl: "/images/spider1.jpg",
+            },
+          ],
           category: "Fashion",
           details: [
             {
@@ -194,7 +209,12 @@ export const productHandlers = [
           eventEndTime: 14,
           price: 67000,
           discount: 15,
-          thumbnailImage: "/images/shiseido.png",
+          thumbnailImage: [
+            {
+              productDetailId: 16,
+              imageUrl: "/images/shiseido.png",
+            },
+          ],
           category: "Beauty",
           details: [
             {
@@ -221,7 +241,12 @@ export const productHandlers = [
           eventEndTime: 16,
           price: 79900,
           discount: 10,
-          thumbnailImage: "/images/roem.png",
+          thumbnailImage: [
+            {
+              productDetailId: 16,
+              imageUrl: "/images/roem.png",
+            },
+          ],
           category: "Fashion",
           details: [
             {
@@ -248,7 +273,12 @@ export const productHandlers = [
           eventEndTime: 20,
           price: 219000,
           discount: 10,
-          thumbnailImage: "/images/swarovski.png",
+          thumbnailImage: [
+            {
+              productDetailId: 16,
+              imageUrl: "/images/swarovski.png",
+            },
+          ],
           category: "Fashion",
           details: [
             {
@@ -275,7 +305,12 @@ export const productHandlers = [
           eventEndTime: 23,
           price: 39900,
           discount: 50,
-          thumbnailImage: "/images/mixxo.jpg",
+          thumbnailImage: [
+            {
+              productDetailId: 16,
+              imageUrl: "/images/mixxo.jpg",
+            },
+          ],
           category: "Fashion",
           details: [
             {
@@ -306,7 +341,12 @@ export const productHandlers = [
           eventEndTime: 17,
           price: 10000,
           discount: 10.0,
-          thumbnailImage: "/images/lg1.png",
+          thumbnailImage: [
+            {
+              productDetailId: 16,
+              imageUrl: "/images/lg1.png",
+            },
+          ],
           category: "Fashion",
           details: [
             {
@@ -333,7 +373,12 @@ export const productHandlers = [
           eventEndTime: 17,
           price: 10000,
           discount: 10.0,
-          thumbnailImage: "/images/lg1.png",
+          thumbnailImage: [
+            {
+              productDetailId: 16,
+              imageUrl: "/images/lg1.png",
+            },
+          ],
           category: "Fashion",
           details: [
             {
@@ -360,7 +405,12 @@ export const productHandlers = [
           eventEndTime: 17,
           price: 10000,
           discount: 10.0,
-          thumbnailImage: "/images/lg1.png",
+          thumbnailImage: [
+            {
+              productDetailId: 16,
+              imageUrl: "/images/lg1.png",
+            },
+          ],
           category: "Fashion",
           details: [
             {

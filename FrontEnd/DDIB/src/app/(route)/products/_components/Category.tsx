@@ -55,17 +55,15 @@ export default function Category({ category }: Props) {
       ) : (
         <div className={styles.noItem}>
           {/* <div className={styles.noItemText}>NO</div> */}
-          <div>
-            <Lottie
-              loop
-              animationData={noProduct2}
-              play
-              style={{ width: 600, height: 450 }}
-            />
-          </div>
+          <Lottie
+            loop
+            animationData={noProduct2}
+            play
+            className={styles.noItemImage}
+          />
           {/* <div className={styles.noItemText}>ITEM</div> */}
           <div className={styles.noItemText}>
-            <div>&nbsp;&nbsp;NO&nbsp;&nbsp;</div> <div>ITEM</div>{" "}
+            <div>&nbsp;&nbsp;NO&nbsp;</div> <div>&nbsp;&nbsp;ITEM</div>{" "}
           </div>
         </div>
       )}

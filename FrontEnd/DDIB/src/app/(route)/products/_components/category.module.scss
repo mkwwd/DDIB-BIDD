@@ -3,10 +3,17 @@
   flex-wrap: wrap;
   gap: 4%;
   margin-top: 6vh;
+  justify-content: center;
 }
 
 .item {
   width: 22%;
+}
+
+.noItemImage {
+  width: 80%;
+  max-width: 600px;
+  aspect-ratio: 4/3;
 }
 
 .noItem {
@@ -15,18 +22,41 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  margin-top: 50px;
 }
 
 .noItemText {
   position: absolute;
+  justify-content: space-around;
+  width: 100%;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   display: flex;
-  font-size: 8vh;
   color: var(--scarlet);
-  gap: 350px;
   div {
+    font-size: 8vh;
     font-family: "Oooh Baby";
+  }
+}
+
+@media (max-width: 768px) {
+  .item {
+    width: 45%;
+  }
+
+  .noItemImage {
+    width: 300px;
+    height: 225px;
+  }
+
+  .noItemText {
+    transform: translate(0%, 0%);
+    position: static;
+    gap: 0;
+    justify-content: center;
+    div {
+      font-size: 30px;
+    }
   }
 }

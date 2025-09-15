@@ -28,9 +28,10 @@ export default function WishList() {
                 <div key={item.productId} className={styles.listItem}>
                   <Link href={`/products/${item.productId}`}>
                     <ProductItem
-                      thumbnailImage={item.thumbnailImage}
+                      thumbnailImage={item.thumbnailImage[0].imageUrl}
                       companyName={item.companyName}
                       name={item.name}
+                      eventStartDate={item.eventStartDate}
                       eventStartTime={item.eventStartTime}
                       eventEndTime={item.eventEndTime}
                       price={item.price}

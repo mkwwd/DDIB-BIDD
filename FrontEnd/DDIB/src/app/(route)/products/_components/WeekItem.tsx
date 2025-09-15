@@ -94,73 +94,76 @@ export default function WeekItem({ checkDay }: Props) {
                           <div className={styles.soldLogo}>SOLD OUT</div>
                         </>
                       )}
-                      <div className={styles.backGroundLight}>
-                        <div className={styles.backGroundColor}>
-                          <div className={styles.timeAndstock}>
-                            <div className={styles.eventTime}>
-                              <div>
-                                <PiTimerBold style={{ marginTop: "2px" }} />
+                      <div className={styles.weekItemArea}>
+                        <div className={styles.imgContainer}>
+                          <div className={styles.wrapper}>
+                            <Image
+                              src={item.thumbnailImage[0].imageUrl}
+                              alt="상품썸네일"
+                              fill
+                              sizes="auto"
+                              loading="lazy"
+                            ></Image>
+                            {/* <div className={styles.stock}>
+                              {item.stock}개 남음
+                            </div> */}
+                          </div>
+                        </div>
+                        <div className={styles.backGroundLight}>
+                          <div className={styles.backGroundColor}>
+                            <div className={styles.timeAndstock}>
+                              <div className={styles.eventTime}>
+                                <div>
+                                  <PiTimerBold style={{ marginTop: "2px" }} />
+                                </div>
+                                {item.eventStartTime}:00 - {item.eventEndTime}
+                                :00
                               </div>
-                              {item.eventStartTime}:00 - {item.eventEndTime}:00
+                              <div className={styles.stock}>
+                                {item.over ? (
+                                  <>0개 남음</>
+                                ) : (
+                                  <>{item.stock}개 한정</>
+                                )}
+                              </div>
                             </div>
-                            <div className={styles.stock}>
-                              {item.over ? (
-                                <>0개 남음</>
+                            <div>
+                              <div className={styles.name}>{item.name}</div>
+                              <div className={styles.priceArea}>
+                                <div>{item.price.toLocaleString("ko-KR")}</div>
+                                <div>
+                                  {getDiscount(
+                                    item.price,
+                                    item.discount
+                                  ).toLocaleString("ko-KR")}
+                                </div>
+                                <div>{item.discount}%</div>
+                              </div>
+                              {checkDay == 0 ? (
+                                item.over ? (
+                                  <div className={styles.timeThree}>
+                                    타임딜 종료
+                                  </div>
+                                ) : timer[item.productId] ?? true ? (
+                                  <div className={styles.timeOne}>
+                                    <TimeCount
+                                      startTime={item.eventStartDate}
+                                      id={item.productId}
+                                    />
+                                  </div>
+                                ) : (
+                                  <div className={styles.timeFour}>
+                                    🚨타임딜 진행중🚨
+                                  </div>
+                                )
                               ) : (
-                                <>{item.stock}개 한정</>
+                                <div className={styles.timeTwo}>
+                                  {`${item.eventStartTime}`.padStart(2, "0")}:00
+                                  OPEN
+                                </div>
                               )}
                             </div>
                           </div>
-                          <div>
-                            <div className={styles.name}>{item.name}</div>
-                            <div className={styles.priceArea}>
-                              <div>{item.price.toLocaleString("ko-KR")}</div>
-                              <div>
-                                {getDiscount(
-                                  item.price,
-                                  item.discount
-                                ).toLocaleString("ko-KR")}
-                              </div>
-                              <div>{item.discount}%</div>
-                            </div>
-                            {checkDay == 0 ? (
-                              item.over ? (
-                                <div className={styles.timeThree}>
-                                  타임딜 종료
-                                </div>
-                              ) : timer[item.productId] ?? true ? (
-                                <div className={styles.timeOne}>
-                                  <TimeCount
-                                    startTime={item.eventStartDate}
-                                    id={item.productId}
-                                  />
-                                </div>
-                              ) : (
-                                <div className={styles.timeFour}>
-                                  🚨타임딜 진행중🚨
-                                </div>
-                              )
-                            ) : (
-                              <div className={styles.timeTwo}>
-                                {`${item.eventStartTime}`.padStart(2, "0")}:00
-                                OPEN
-                              </div>
-                            )}
-                          </div>
-                        </div>
-                      </div>
-                      <div className={styles.imgContainer}>
-                        <div className={styles.wrapper}>
-                          <Image
-                            src={item.thumbnailImage[0].imageUrl}
-                            alt="상품썸네일"
-                            fill
-                            sizes="auto"
-                            loading="lazy"
-                          ></Image>
-                          {/* <div className={styles.stock}>
-                              {item.stock}개 남음
-                            </div> */}
                         </div>
                       </div>
                     </Link>
@@ -173,14 +176,12 @@ export default function WeekItem({ checkDay }: Props) {
         ) : (
           <div className={styles.noItem}>
             <div className={styles.noItemText}>NO</div>
-            <div>
-              <Lottie
-                loop
-                animationData={noProduct}
-                play
-                style={{ width: 400, height: 500 }}
-              />
-            </div>
+            <Lottie
+              loop
+              animationData={noProduct}
+              play
+              className={styles.noItemImage}
+            />
             <div className={styles.noItemText}>ITEM</div>
             {/* <div className={styles.noItemText}>준비된 TimeDeal이 없어요</div> */}
           </div>

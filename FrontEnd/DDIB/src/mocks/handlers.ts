@@ -20,7 +20,12 @@ export const handlers = [
           eventEndTime: 13,
           price: 45000,
           discount: 35,
-          thumbnailImage: "/images/jungsaemmool1.jpg",
+          thumbnailImage: [
+            {
+              productDetailId: 16,
+              imageUrl: "/images/jungsaemmool1.jpg",
+            },
+          ],
           category: "Beauty",
           details: [
             {
@@ -47,7 +52,12 @@ export const handlers = [
           eventEndTime: 15,
           price: 199000,
           discount: 20,
-          thumbnailImage: "/images/sony1.jpg",
+          thumbnailImage: [
+            {
+              productDetailId: 16,
+              imageUrl: "/images/sony1.jpg",
+            },
+          ],
           category: "Appliance",
           details: [
             {
@@ -74,7 +84,12 @@ export const handlers = [
           eventEndTime: 17,
           price: 898000,
           discount: 20,
-          thumbnailImage: "/images/lg1.png",
+          thumbnailImage: [
+            {
+              productDetailId: 16,
+              imageUrl: "/images/lg1.png",
+            },
+          ],
           category: "Appliance",
           details: [
             {
@@ -103,7 +118,12 @@ export const handlers = [
           eventEndTime: 10,
           price: 187000,
           discount: 20.0,
-          thumbnailImage: "/images/logitech_mouse1.jpg",
+          thumbnailImage: [
+            {
+              productDetailId: 16,
+              imageUrl: "/images/logitech_mouse1.jpg",
+            },
+          ],
           category: "Appliance",
           details: [
             {
@@ -130,7 +150,12 @@ export const handlers = [
           eventEndTime: 13,
           price: 45000,
           discount: 35,
-          thumbnailImage: "/images/jungsaemmool1.jpg",
+          thumbnailImage: [
+            {
+              productDetailId: 16,
+              imageUrl: "/images/jungsaemmool1.jpg",
+            },
+          ],
           category: "Beauty",
           details: [
             {
@@ -157,7 +182,12 @@ export const handlers = [
           eventEndTime: 15,
           price: 199000,
           discount: 20,
-          thumbnailImage: "/images/sony1.jpg",
+          thumbnailImage: [
+            {
+              productDetailId: 16,
+              imageUrl: "/images/sony1.jpg",
+            },
+          ],
           category: "Appliance",
           details: [
             {
@@ -184,7 +214,12 @@ export const handlers = [
           eventEndTime: 17,
           price: 898000,
           discount: 20,
-          thumbnailImage: "/images/lg1.png",
+          thumbnailImage: [
+            {
+              productDetailId: 16,
+              imageUrl: "/images/lg1.png",
+            },
+          ],
           category: "Appliance",
           details: [
             {
@@ -211,7 +246,12 @@ export const handlers = [
           eventEndTime: 20,
           price: 102100,
           discount: 15,
-          thumbnailImage: "/images/nike1.jpg",
+          thumbnailImage: [
+            {
+              productDetailId: 16,
+              imageUrl: "/images/nike1.jpg",
+            },
+          ],
           category: "Fashion",
           details: [
             {
@@ -238,7 +278,12 @@ export const handlers = [
           eventEndTime: 23,
           price: 179000,
           discount: 30.0,
-          thumbnailImage: "/images/spider1.jpg",
+          thumbnailImage: [
+            {
+              productDetailId: 16,
+              imageUrl: "/images/spider1.jpg",
+            },
+          ],
           category: "Fashion",
           details: [
             {

@@ -15,12 +15,6 @@ import ColorThief from "colorthief";
 import tinycolor from "tinycolor2";
 import fog from "../../../../public/images/fogg2.png";
 
-type SlideshowItem = {
-  id: number;
-  imageUrl: string;
-  title: string;
-};
-
 interface Props {
   todayList: Product[];
   onBg: (color: string) => void;
@@ -28,32 +22,27 @@ interface Props {
 
 export default function MainSlider({ todayList, onBg }: Props) {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const maxItems = todayList.length; // 슬라이드 아이템 수
+  const maxItems = todayList.length;
   const sliderLeftRef = useRef<Slider | null>(null);
   const sliderRightRef = useRef<Slider | null>(null);
   const [colors, setColors] = useState<string>("");
 
   useEffect(() => {
-    ImageWithColors(todayList[currentSlide].thumbnailImage);
-  }, [currentSlide]);
-
-  const ImageWithColors = (imageUrl: string) => {
     const img = document.createElement("img");
     img.crossOrigin = "Annoymous";
-    img.src = imageUrl;
+    img.src = todayList[currentSlide].thumbnailImage[0].imageUrl;
 
     img.onload = () => {
       const colorThief = new ColorThief();
-      const extractedColors = colorThief.getColor(img);
-      const [r, g, b] = extractedColors;
+      const [r, g, b] = colorThief.getColor(img);
       const color = `rgb(${r}, ${g}, ${b})`;
-      const lightenColor = tinycolor(color).lighten(20).toString();
-      const darkenColor = tinycolor(color).darken(20).toString();
+      // const lightenColor = tinycolor(color).lighten(20).toString();
+      // const darkenColor = tinycolor(color).darken(20).toString();
       setColors(`rgb(${r}, ${g}, ${b})`);
       onBg(`rgb(${r}, ${g}, ${b})`);
       console.log("배경색" + color);
     };
-  };
+  }, [currentSlide]);
 
   useEffect(() => {
     const handleWheel = (e: WheelEvent) => {
@@ -64,13 +53,6 @@ export default function MainSlider({ todayList, onBg }: Props) {
       } else {
         sliderLeftRef.current?.slickNext();
         sliderRightRef.current?.slickGoTo(2 - (currentSlide + 1));
-        if (currentSlide === maxItems - 1) {
-          // currentSlide가 2일 때 아래로 스크롤이 발생하면, 화면을 100vh 아래로 이동
-          window.scrollTo({
-            top: window.innerHeight,
-            behavior: "smooth",
-          });
-        }
       }
     };
 
@@ -101,6 +83,29 @@ export default function MainSlider({ todayList, onBg }: Props) {
       setCurrentSlide(next);
       sliderRightRef.current?.slickGoTo(maxItems - 1 - next);
     },
+    afterChange: (index: number) => {
+      if (index == maxItems - 1) {
+        const timer = setTimeout(() => {
+          window.scrollTo({
+            top: window.innerHeight,
+            behavior: "smooth",
+          });
+        }, 300);
+
+        const scrollNext = (e: WheelEvent) => {
+          if (e.deltaX > 0) {
+            clearTimeout(timer);
+            window.scrollTo({
+              top: window.innerHeight,
+              behavior: "smooth",
+            });
+            document.removeEventListener("wheel", scrollNext);
+          }
+        };
+
+        document.addEventListener("wheel", scrollNext, { once: true });
+      }
+    },
   };
 
   const settingsRight = {
@@ -109,7 +114,7 @@ export default function MainSlider({ todayList, onBg }: Props) {
     vertical: true,
     swipe: false,
     infinite: false,
-    speed: 950,
+    speed: 1000,
     cssEase: "cubic-bezier(0.7, 0, 0.3, 1)",
     beforeChange: (current: number, next: number) => {
       sliderLeftRef.current?.slickGoTo(maxItems - 1 - next);
@@ -135,7 +140,10 @@ export default function MainSlider({ todayList, onBg }: Props) {
             .map((item, index) => (
               <div className={styles.background} key={index}>
                 <div className={styles.timer}>
-                  <TimeCount startTime={item.eventStartDate} />
+                  <TimeCount
+                    startTime={item.eventStartDate}
+                    id={item.productId}
+                  />
                   <div className={styles.name}>{item.name}</div>
                   <div className={styles.timedeal}>
                     <div>
@@ -172,7 +180,7 @@ export default function MainSlider({ todayList, onBg }: Props) {
                 <Link href={`/products/${item.productId}`}>
                   <div className={styles.wrapper}>
                     <Image
-                      src={item.thumbnailImage}
+                      src={item.thumbnailImage[0].imageUrl}
                       alt="썸네일"
                       fill
                       sizes=""
