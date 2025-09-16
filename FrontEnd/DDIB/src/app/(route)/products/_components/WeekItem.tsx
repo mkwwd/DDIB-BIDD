@@ -16,7 +16,7 @@ import { useState, useEffect, useRef } from "react";
 import { getDiscount } from "@/app/_utils/commonFunction";
 import TimeCount from "@/app/_components/TimeCount";
 import Lottie from "react-lottie-player";
-import noProduct from "@/app/_components/noProduct.json";
+import noProduct from "@/app/_components/_lottie/noProduct.json";
 import { PiTimerBold } from "react-icons/pi";
 import { timerStore } from "@/app/_store/product";
 
