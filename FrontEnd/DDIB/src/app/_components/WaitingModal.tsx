@@ -9,7 +9,7 @@ import { Que } from "@/app/_types/types";
 import Cookies from "js-cookie";
 import Lottie from "react-lottie-player";
 
-import cart from "./cart.json";
+import cart from "@/app/_components/_lottie/cart.json";
 
 export default function WaitingModal() {
   const router = useRouter();

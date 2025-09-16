@@ -8,7 +8,7 @@ import { Product } from "@/app/_types/types";
 import { getProductSearch } from "@/app/_api/product";
 import { useEffect } from "react";
 import Lottie from "react-lottie-player";
-import noProduct2 from "@/app/_components/noProduct2.json";
+import noProduct2 from "@/app/_components/_lottie/noProduct2.json";
 import dynamic from "next/dynamic";
 
 interface Props {

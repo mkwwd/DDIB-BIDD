@@ -3,7 +3,7 @@
 import Link from "next/link";
 import dynamic from "next/dynamic";
 import Lottie from "react-lottie-player";
-import not from "./_components/notfound.json";
+import notfound from "./_components/_lottie/notfound.json";
 
 const NotFound = () => {
   const LottiePlayer = dynamic(() => import("react-lottie-player"), {
@@ -25,7 +25,7 @@ const NotFound = () => {
       <div>
         <LottiePlayer
           loop
-          animationData={not}
+          animationData={notfound}
           play
           style={{ width: 400, height: 400 }}
         />

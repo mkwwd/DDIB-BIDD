@@ -2,7 +2,7 @@
 
 import dynamic from "next/dynamic";
 import Lottie from "react-lottie-player";
-import fail from "./fail.json";
+import fail from "@/app/_components/_lottie/fail.json";
 import styles from "./fail.module.scss";
 import Link from "next/link";
 
