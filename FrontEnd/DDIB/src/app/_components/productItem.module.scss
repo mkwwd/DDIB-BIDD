@@ -19,13 +19,6 @@
     object-fit: cover;
     margin: auto;
   }
-
-  &:hover {
-    .reserve,
-    .reserveLogo {
-      display: block;
-    }
-  }
 }
 
 .sold,
@@ -65,10 +58,6 @@
     height: 2px;
     background-color: var(--scarlet);
   }
-}
-
-.reserve {
-  display: none;
 }
 
 .reserveLogo {

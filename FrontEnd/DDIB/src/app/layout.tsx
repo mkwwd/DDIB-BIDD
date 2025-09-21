@@ -11,7 +11,9 @@ export const metadata: Metadata = {
   title: "DDIB",
   description: "DDIB",
   icons: {
-    icon: "../../public/ddib.png",
+    icon: "/ddib.png",
+    shortcut: "/ddib.png",
+    apple: "/ddib.png",
   },
 };
 
