@@ -124,10 +124,10 @@ export default function NavMenu() {
           }}
           style={{ cursor: "pointer" }}
         >
+          <div className={styles.subTitle} style={{ paddingRight: "1.5vw" }}>
+            <div>BIDD</div>
+          </div>
           {/* <Link href="https://bidd.kro.kr">
-            <div className={styles.subTitle} style={{ paddingRight: "1.5vw" }}>
-              <div>BIDD</div>
-            </div>
           </Link> */}
         </li>
         <li className={styles.search}>
