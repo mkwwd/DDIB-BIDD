@@ -11,7 +11,7 @@ export const MSWComponent = () => {
 
     if (typeof window !== "undefined") {
       if (process.env.NEXT_PUBLIC_API_MOCKING === "enabled") {
-        import("@/_mocks/browser")
+        import("@/mocks/browser")
           .then((module) => {
             const worker = module.default;
             worker.start();

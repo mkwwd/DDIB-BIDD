@@ -18,6 +18,7 @@
 }
 
 .weekItemArea {
+  position: relative;
   display: flex;
   justify-content: center;
   padding-left: 5%;
@@ -62,8 +63,8 @@
 .backGroundLight {
   padding: 5px;
   position: relative;
-  top: 0;
   width: 90%;
+  min-height: 250px;
   border-radius: 10px;
   aspect-ratio: 4/2;
 }
@@ -178,8 +179,8 @@
   margin-top: 4px;
   padding-left: 5px;
   padding-bottom: 0.2em;
-  font-size: clamp(20px, 2.2vw, 35px);
-  font-weight: 600;
+  font-size: clamp(21px, 2.2vw, 35px);
+  font-weight: 500;
   white-space: wrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -193,21 +194,22 @@
 
 .priceArea {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   gap: 0.5vw;
   padding-left: 5px;
   > div:nth-child(1) {
-    font-size: 2vw;
+    font-size: clamp(10px, 2vw, 40px);
     color: gray;
     text-decoration: line-through;
   }
   > div:nth-child(2) {
-    font-size: 4.5vw;
+    font-size: clamp(20px, 4.5vw, 60px);
     color: black;
     font-weight: bold;
   }
   > div:nth-child(3) {
-    font-size: 3vw;
+    font-size: clamp(22px, 3vw, 50px);
     color: var(--scarlet);
     font-weight: bold;
   }
@@ -226,22 +228,25 @@
   text-shadow: 0.03em 0.03em #eeeeee, 0.06em 0.06em #ff545457;
 }
 
+// 오픈예정(오늘)
 .timeOne {
   font-size: 8vw;
 }
 
+// 오픈예정(오늘 이후)
 .timeTwo {
-  font-size: 6.9vw;
+  font-size: clamp(20px, 5.5vw, 110px);
 }
 
+// 타임딜종료
 .timeThree {
-  margin-top: 15px;
-  font-size: 5vw;
+  font-size: clamp(20px, 5vw, 100px);
 }
 
+// 타임딜진행중
 .timeFour {
-  margin-top: 10px;
-  font-size: 3.8vw;
+  font-family: "Paperozi";
+  font-size: clamp(21px, 4vw, 70px);
   font-weight: bold;
 }
 
@@ -276,7 +281,7 @@
 }
 
 .sold {
-  z-index: 40;
+  z-index: 100;
   top: 0;
   position: absolute;
   width: 100%;
@@ -286,13 +291,15 @@
 }
 
 .soldLogo {
-  z-index: 10;
+  width: 100%;
+  text-align: center;
+  z-index: 120;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   color: var(--scarlet);
-  font-size: 6vw;
+  font-size: clamp(50px, 6vw, 70px);
   font-family: "Oooh Baby";
   font-weight: bold;
   // &::before {
@@ -352,30 +359,23 @@
     padding-left: 0;
   }
 
+  .imgContainer {
+    display: flex;
+    align-items: center;
+    width: 45%;
+  }
+
+  .wrapper {
+    aspect-ratio: 1/1;
+  }
+
   .backGroundLight {
-    padding: 5px;
-    position: relative;
-    top: 0;
     width: 90%;
-    border-radius: 10px;
-    aspect-ratio: 4/3;
+    aspect-ratio: 5/3;
   }
 
   .backGroundColor {
-    padding: 5% 5vw 5% 53%;
-  }
-
-  .imgContainer {
-    width: 50%;
-    transform: translateY(0%);
-    top: auto;
-    bottom: 0;
-  }
-
-  .timeAndstock {
-    position: absolute;
-    top: 15px;
-    left: 15px;
+    padding: 5% 5% 5% 47%;
   }
 
   .name {
@@ -383,5 +383,108 @@
     display: -webkit-box;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
+  }
+}
+
+@media (max-width: 470px) {
+  .weekItemArea {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .imgContainer {
+    display: flex;
+    position: relative;
+    align-items: center;
+    width: 90%;
+    transform: translateY(0);
+  }
+
+  .wrapper {
+    aspect-ratio: 4/5;
+  }
+
+  .backGroundLight {
+    z-index: 20;
+    position: absolute;
+    bottom: 0;
+    width: 90%;
+    min-height: 100px;
+  }
+
+  .backGroundColor {
+    padding: 5%;
+    //border-radius: 0;
+    background-color: rgba(0, 0, 0, 0.259);
+    &::after {
+      display: none;
+    }
+  }
+
+  .name {
+    font-weight: 400;
+    color: white;
+    line-height: 1.2;
+    height: 2.5em;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+  }
+
+  .timeAndstock {
+    position: absolute;
+    top: -100%;
+  }
+
+  .priceArea {
+    > div:nth-child(1) {
+      font-size: clamp(20px, 5vw, 25px);
+      color: rgb(255, 255, 255);
+    }
+    > div:nth-child(2) {
+      font-size: clamp(25px, 7vw, 40px);
+      color: white;
+    }
+    > div:nth-child(3) {
+      font-size: clamp(22px, 6vw, 35px);
+    }
+  }
+
+  .timeTwo {
+    font-size: 40px;
+  }
+
+  .timeThree {
+    font-size: clamp(30px, 10vw, 50px);
+  }
+
+  .timeFour {
+    margin-top: 5px;
+    box-shadow: 10px 10px 6px -3px rgba(0, 0, 0, 0.103);
+    background-color: #ff5454dd;
+    border-radius: 10px;
+    padding: 5px;
+    color: white;
+    font-size: clamp(20px, 8vw, 30px);
+    text-shadow: 0.03em 0.03em #6b0404, 0.06em 0.06em #710202e9;
+    text-shadow: none;
+  }
+
+  .paginationButton {
+    width: 200px !important;
+    top: 90% !important;
+    left: 50% !important;
+    transform: translateX(-50%);
+
+    :global(.swiper-pagination-bullet) {
+      margin-right: 8px !important;
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+    }
+
+    :global(.swiper-pagination-bullet-active) {
+      width: 20px;
+    }
   }
 }
