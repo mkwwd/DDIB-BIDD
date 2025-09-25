@@ -9,9 +9,15 @@ import { userHandlers } from "./userHandlers";
 const app = express();
 const port = 8080;
 
+const allowedOrigins = [
+  "http://localhost:3000",
+  "https://ddib-bidd.vercel.app/",
+  "https://ddib-bidd-git-master-chojayoungs-projects.vercel.app/maintenance",
+];
+
 app.use(
   cors({
-    origin: "http://localhost:3000",
+    origin: allowedOrigins,
     optionsSuccessStatus: 200,
     credentials: true,
   })
