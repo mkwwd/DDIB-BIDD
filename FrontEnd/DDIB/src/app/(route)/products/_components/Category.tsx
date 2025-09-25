@@ -32,13 +32,19 @@ export default function Category({ category }: Props) {
   return (
     <div>
       {data && data.length > 0 ? (
-        <>
+        <div className={styles.itemContainer}>
           <div className={styles.itemArea}>
             {data.map((item, index) => (
               <Link
                 href={`/products/${item.productId}`}
                 className={styles.item}
                 key={index}
+                onClick={(e) => {
+                  if (item.over) {
+                    e.preventDefault();
+                    alert("종료된 타임딜 입니다.");
+                  }
+                }}
               >
                 <ProductItem
                   thumbnailImage={item.thumbnailImage[0].imageUrl}
@@ -56,7 +62,7 @@ export default function Category({ category }: Props) {
               </Link>
             ))}
           </div>
-        </>
+        </div>
       ) : (
         <div className={styles.noItem}>
           {/* <div className={styles.noItemText}>NO</div> */}

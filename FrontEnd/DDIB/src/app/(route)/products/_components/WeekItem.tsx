@@ -92,7 +92,15 @@ export default function WeekItem({ checkDay }: Props) {
                       index == activeIndex ? styles.active : ""
                     }`}
                   >
-                    <Link href={`/products/${item.productId}`}>
+                    <Link
+                      href={`/products/${item.productId}`}
+                      onClick={(e) => {
+                        if (item.over) {
+                          e.preventDefault();
+                          alert("종료된 타임딜 입니다.");
+                        }
+                      }}
+                    >
                       {item.over && (
                         <>
                           <div className={styles.sold}></div>
