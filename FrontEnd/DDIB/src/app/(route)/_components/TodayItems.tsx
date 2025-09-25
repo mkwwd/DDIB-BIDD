@@ -64,19 +64,27 @@ export default function TodayItems({ todayList, bgColor }: Props) {
         <Swiper
           initialSlide={0}
           modules={[A11y, Autoplay, EffectCoverflow]}
-          effect="coverflow"
-          slidesPerView={3}
           //autoplay={{ delay: 2000, disableOnInteraction: false }}
-          autoplay={false}
+          autoplay={true}
           centeredSlides={true}
           slideToClickedSlide={true}
           loop={true}
-          coverflowEffect={{
-            rotate: 30,
-            depth: 50,
-            slideShadows: false,
-          }}
+          effect="slide"
           slideActiveClass={styles.active}
+          breakpoints={{
+            0: {
+              slidesPerView: 1.2,
+              spaceBetween: 5,
+            },
+            768: {
+              slidesPerView: 1,
+              spaceBetween: 50,
+            },
+            1024: {
+              slidesPerView: 3,
+              spaceBetween: 30,
+            },
+          }}
         >
           {items.map((item, index) => {
             return (

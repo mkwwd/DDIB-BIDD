@@ -119,7 +119,8 @@
   cursor: none;
   position: absolute;
   width: 65%;
-  height: 70vh;
+  min-width: 450px;
+  aspect-ratio: 3/4;
   top: 53%;
   left: 8%;
   transform: translateY(-50%);
@@ -231,18 +232,62 @@
 
 @keyframes fog-animation-3 {
   0% {
-    top: 30%;
+    top: 90%;
     left: 50%;
     opacity: 0.7;
   }
   50% {
-    top: 50%;
+    top: 100%;
     left: 80%;
     opacity: 0.7;
   }
   100% {
-    top: 30%;
+    top: 90%;
     left: 50%;
     opacity: 0.7;
+  }
+}
+
+@media (max-width: 768px) {
+  .slideshow-left,
+  .slideshow-right {
+    height: 50vh;
+  }
+
+  .imageArea {
+    min-width: 150px;
+  }
+
+  .background {
+    position: relative;
+    height: 50vh;
+  }
+
+  .container {
+    > div:nth-child(1) {
+      position: relative;
+      z-index: 10;
+      width: 50%;
+      height: 50vh;
+    }
+    > div:nth-child(2) {
+      position: relative;
+      z-index: 10;
+      width: 50%;
+      height: 50vh;
+    }
+  }
+
+  .fogContainer {
+    :nth-child(2) {
+      display: none;
+    }
+    :nth-child(3) {
+      display: none;
+    }
+  }
+
+  .discount {
+    bottom: 10%;
   }
 }

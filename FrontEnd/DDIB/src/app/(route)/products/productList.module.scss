@@ -3,13 +3,13 @@
   padding: 8% 15%;
   display: flex;
   flex-direction: column;
-  background-image: url("../../../../public/images/fog6.png"),
-    url("../../../../public/images/fog6.png"),
-    url("../../../../public/images/fog6.png");
-  background-position: -150% 160%, 550% -50%, 130% -500%;
-  background-repeat: no-repeat, no-repeat, no-repeat;
-  background-size: 1300px 800px, 1400px 900px, 1200px 800px;
-  background-attachment: fixed;
+  // background-image: url("../../../../public/images/fog6.png"),
+  //   url("../../../../public/images/fog6.png"),
+  //   url("../../../../public/images/fog6.png");
+  // background-position: 0% -20%, 550% -50%, 130% -500%;
+  // background-repeat: no-repeat, no-repeat, no-repeat;
+  // background-size: 90vw 60vw, 90vw 50vw, 1200px 800px;
+  // background-attachment: fixed;
 }
 
 @media (max-width: 768px) {
@@ -40,23 +40,28 @@
 }
 
 .fogContainer {
-  z-index: -1;
-  pointer-events: none;
+  z-index: -2;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+
   img {
-    opacity: 0;
-    position: fixed;
-    width: 20%;
+    opacity: 0.7;
+    position: absolute;
   }
   :nth-child(1) {
-    width: 50%;
+    width: 80vw;
     animation: fog-animation-1 30s linear infinite;
   }
   :nth-child(2) {
-    width: 80%;
+    width: 80vw;
     animation: fog-animation-2 40s linear infinite;
   }
   :nth-child(3) {
-    width: 100%;
+    width: 100vw;
     animation: fog-animation-3 50s linear infinite;
   }
 }
@@ -68,8 +73,8 @@
     opacity: 0.7;
   }
   50% {
-    top: -10%;
-    left: -20%;
+    top: -5%;
+    left: -10%;
     opacity: 0.7;
   }
   100% {
@@ -81,19 +86,19 @@
 
 @keyframes fog-animation-2 {
   0% {
-    top: 5%;
-    left: 50%;
-    opacity: 0.7;
+    top: 60%;
+    left: 10%;
+    opacity: 0.6;
   }
   50% {
-    top: 5%;
-    left: 60%;
-    opacity: 0.7;
+    top: 80%;
+    left: -5%;
+    opacity: 0.6;
   }
   100% {
-    top: 5%;
-    left: 50%;
-    opacity: 0.7;
+    top: 60%;
+    left: 10%;
+    opacity: 0.6;
   }
 }
 
@@ -103,8 +108,14 @@
     left: 50%;
     opacity: 0.7;
   }
-  100% {
+  50% {
     top: 50%;
     left: 80%;
+    opacity: 0.7;
+  }
+  100% {
+    top: 30%;
+    left: 50%;
+    opacity: 0.7;
   }
 }

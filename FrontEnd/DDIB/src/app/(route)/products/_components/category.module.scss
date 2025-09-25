@@ -3,7 +3,7 @@
   flex-wrap: wrap;
   gap: 4%;
   margin-top: 6vh;
-  justify-content: center;
+  justify-content: flex-start;
 }
 
 .item {
@@ -42,7 +42,7 @@
 
 @media (max-width: 768px) {
   .item {
-    width: 45%;
+    width: 48%;
   }
 
   .noItemImage {
