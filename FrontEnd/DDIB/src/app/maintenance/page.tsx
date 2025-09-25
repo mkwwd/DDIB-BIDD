@@ -25,7 +25,7 @@ export default function MaintenancePage() {
       <div>점검 후 더욱 멋진 서비스로 찾아 뵙겠습니다.</div>
       <div></div>
       <div className={styles.fixTime}>
-        점검시간 : 2025.09.20(토) 00:00 ~ 2025.09.25(목) 16:00
+        점검시간 : 2025.09.20(토) 00:00 ~ 2025.09.25(목) 23:30
       </div>
       <div className={styles.ex}>
         ※ 작업 일정은 상황에 따라 변동 될 수 있습니다.
