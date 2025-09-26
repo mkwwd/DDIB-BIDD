@@ -1,12 +1,13 @@
 import { http, HttpResponse } from "msw";
 
+const BASE_URL = process.env.NEXT_PUBLIC_API_URL!;
 let today = new Date();
 export const handlers = [
-  http.get("/", ({}) => {
+  http.get(`${BASE_URL}/`, ({}) => {
     return HttpResponse.text("Mock server is running!");
   }),
 
-  http.get("/api/product/main", ({ request }) => {
+  http.get(`${BASE_URL}/api/product/main`, ({ request }) => {
     return HttpResponse.json({
       todayNotOverProducts: [
         {
@@ -302,7 +303,7 @@ export const handlers = [
       ],
     });
   }),
-  http.get("/api/order/:id", ({ request, params }) => {
+  http.get(`${BASE_URL}/api/order/:id`, ({ request, params }) => {
     const { id } = params;
     return HttpResponse.json({
       orderId: id,
@@ -323,7 +324,7 @@ export const handlers = [
       paymentMethod: "kakaopay",
     });
   }),
-  http.get("/api/order", ({ request }) => {
+  http.get(`${BASE_URL}/api/order`, ({ request }) => {
     return HttpResponse.json([
       {
         orderId: 0,
@@ -363,7 +364,7 @@ export const handlers = [
       },
     ]);
   }),
-  http.get("/api/notification/:user", ({ request, params }) => {
+  http.get(`${BASE_URL}/api/notification/:user`, ({ request, params }) => {
     const { pk } = params;
     return HttpResponse.json([
       {
@@ -376,7 +377,7 @@ export const handlers = [
       },
     ]);
   }),
-  http.get("/api/product/like/user/:user", ({ request, params }) => {
+  http.get(`${BASE_URL}/api/product/like/user/:user`, ({ request, params }) => {
     const { pk } = params;
     return HttpResponse.json([
       {

@@ -24,8 +24,8 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <MSWComponent />
       <body>
+        <MSWComponent />
         <NextAuthProvider> {children}</NextAuthProvider>
       </body>
     </html>

@@ -30,14 +30,14 @@ export default function ProductDetail() {
 
   const { amount } = amountStore();
   const { setOrderInfo } = orderStore();
-  const userPk = session!.user.id;
+  const userPk = session ? session.user.id : 1;
 
   const { data } = useQuery<ProductInfo>({
     queryKey: ["productInfo", id, userPk],
     queryFn: () => getProductDetail(id, userPk),
   });
 
-  const [salePrice, setSalePrice] = useState(0);
+  const salePrice = data ? getDiscount(data.price, data.discount) : 0;
   const [viewMore, setViewMore] = useState(false);
 
   // const testSend = () => {
@@ -75,16 +75,8 @@ export default function ProductDetail() {
   };
 
   useEffect(() => {
-    if (!session) {
-      //alert("로그인을 먼저 해주세요!!");
-      //router.back();
-    } else {
-      if (data) {
-        const finPrice = getDiscount(data.price, data.discount);
-        setSalePrice(finPrice);
-        setThumbnailUrl(data.thumbnailImage[0].imageUrl);
-        console.log(thumnailUrl);
-      }
+    if (data && data.thumbnailImage.length > 0) {
+      setThumbnailUrl(data.thumbnailImage[0].imageUrl);
     }
   }, [data]);
 

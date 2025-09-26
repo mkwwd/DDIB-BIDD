@@ -1,7 +1,9 @@
 import { http, HttpResponse } from "msw";
 
+const BASE_URL = process.env.NEXT_PUBLIC_API_URL!;
+
 export const categoryHandlers = [
-  http.get("/api/product/search", ({ request }) => {
+  http.get(`${BASE_URL}/api/product/search`, ({ request }) => {
     const url = new URL(request.url);
     const category = url.searchParams.get("category");
 
