@@ -14,7 +14,7 @@ export const MSWComponent = () => {
         import("@/mocks/browser")
           .then((module) => {
             const worker = module.default;
-            worker.start();
+            worker.start({ onUnhandledRequest: "bypass" });
             console.log("msw is running");
           })
           .catch((err) => {

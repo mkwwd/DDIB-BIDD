@@ -1,7 +1,7 @@
 import { http, HttpResponse } from "msw";
-
+const BASE_URL = process.env.NEXT_PUBLIC_API_URL!;
 export const productHandlers = [
-  http.get("/api/product/all", ({ request }) => {
+  http.get(`${BASE_URL}/api/product/all`, ({ request }) => {
     return HttpResponse.json([
       [
         {
@@ -431,45 +431,48 @@ export const productHandlers = [
       [],
     ]);
   }),
-  http.get("/api/product/:productId/:userPk", ({ request, params }) => {
-    const { productId } = params;
+  http.get(
+    `${BASE_URL}/api/product/:productId/:userPk`,
+    ({ request, params }) => {
+      const { productId } = params;
 
-    return HttpResponse.json({
-      productId: productId,
-      name: "SONY 노이즈 캔슬링 블루투스 헤드폰, 화이트, WH-CH720N",
-      totalStock: 50,
-      stock: 50,
-      eventStartDate: "2025-07-19T05:14:00",
-      eventEndDate: "2025-07-17T06:00:00",
-      eventStartTime: 13,
-      eventEndTime: 15,
-      price: 199000,
-      discount: 20,
-      thumbnailImage: [
-        {
-          productDetailId: 1,
-          imageUrl: "/images/sony1.jpg",
-        },
-        {
-          productDetailId: 2,
-          imageUrl: "/images/sony2.jpg",
-        },
-      ],
-      category: "Appliance",
-      details: [
-        {
-          productDetailId: 17,
-          imageUrl: "/images/sony_detail.jpg",
-        },
-      ],
-      likeCount: 30,
-      sellerId: 1,
-      ceoName: "김신",
-      companyName: "SONY",
-      businessNumber: 101010101,
-      companyPhone: 1043200933,
-      companyEmail: "306yyy@naver.com",
-      over: false,
-    });
-  }),
+      return HttpResponse.json({
+        productId: productId,
+        name: "SONY 노이즈 캔슬링 블루투스 헤드폰, 화이트, WH-CH720N",
+        totalStock: 50,
+        stock: 50,
+        eventStartDate: "2025-07-19T05:14:00",
+        eventEndDate: "2025-07-17T06:00:00",
+        eventStartTime: 13,
+        eventEndTime: 15,
+        price: 199000,
+        discount: 20,
+        thumbnailImage: [
+          {
+            productDetailId: 1,
+            imageUrl: "/images/sony1.jpg",
+          },
+          {
+            productDetailId: 2,
+            imageUrl: "/images/sony2.jpg",
+          },
+        ],
+        category: "Appliance",
+        details: [
+          {
+            productDetailId: 17,
+            imageUrl: "/images/sony_detail.jpg",
+          },
+        ],
+        likeCount: 30,
+        sellerId: 1,
+        ceoName: "김신",
+        companyName: "SONY",
+        businessNumber: 101010101,
+        companyPhone: 1043200933,
+        companyEmail: "306yyy@naver.com",
+        over: false,
+      });
+    }
+  ),
 ];
