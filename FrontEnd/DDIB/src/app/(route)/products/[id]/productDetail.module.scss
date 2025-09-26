@@ -49,8 +49,8 @@
 .thumbmini {
   cursor: pointer;
   position: relative;
-  width: 10vh;
-  height: 10vh;
+  width: 10vw;
+  aspect-ratio: 1/1;
   background-color: red;
   img {
     position: absolute;
@@ -223,9 +223,10 @@
     justify-self: flex-end;
     // background-color: #ff545450;
     border: 1px solid var(--scarlet);
-    padding: 5px 10px;
+    padding: 0.5vw 1vw;
     border-radius: 15px;
     color: var(--scarlet);
+    font-size: clamp(7px, 1vw, 20px);
   }
 }
 
@@ -411,7 +412,7 @@
 
 .sellerTitle {
   position: relative;
-  font-size: 2.5vh;
+  font-size: clamp(10px, 2vw, 30px);
   font-weight: bold;
   margin-bottom: 2vh;
   color: black;
@@ -433,7 +434,7 @@
 .sellerItemArea {
   display: flex;
   gap: 50px;
-  margin-left: 40px;
+  justify-content: center;
   &div:nth-child(1) {
     color: rgb(128, 128, 128);
   }
@@ -444,4 +445,5 @@
   flex-direction: column;
   margin-bottom: 1vh;
   gap: 1vh;
+  font-size: 2vw;
 }

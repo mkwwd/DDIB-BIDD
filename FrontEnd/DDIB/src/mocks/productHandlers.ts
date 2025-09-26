@@ -38,38 +38,6 @@ export const productHandlers = [
         },
         {
           productId: 2,
-          name: "정샘물 에센셜 스킨 누더 쿠션 14g + 리필 14g, 핑크라이트, 1세트",
-          totalStock: 100,
-          stock: 100,
-          eventStartDate: "2025-04-21T11:00:00",
-          eventEndDate: "2025-04-21T13:00:00",
-          eventStartTime: 11,
-          eventEndTime: 13,
-          price: 45000,
-          discount: 35,
-          thumbnailImage: [
-            {
-              productDetailId: 1,
-              imageUrl: "/images/jungsaemmool1.jpg",
-            },
-          ],
-          category: "Beauty",
-          details: [
-            {
-              productDetailId: 17,
-              imageUrl: "/images/jungsaemmool2.jpg",
-            },
-          ],
-          likeCount: 0,
-          sellerId: 1,
-          companyName: "joonseong",
-          businessNumber: 101010101,
-          companyPhone: 1043200933,
-          companyEmail: "306yyy@naver.com",
-          over: false,
-        },
-        {
-          productId: 3,
           name: "SONY 노이즈 캔슬링 블루투스 헤드폰, 화이트, WH-CH720N",
           totalStock: 50,
           stock: 50,
@@ -90,6 +58,38 @@ export const productHandlers = [
             {
               productDetailId: 16,
               imageUrl: "/images/sony2.jpg",
+            },
+          ],
+          likeCount: 0,
+          sellerId: 1,
+          companyName: "joonseong",
+          businessNumber: 101010101,
+          companyPhone: 1043200933,
+          companyEmail: "306yyy@naver.com",
+          over: false,
+        },
+        {
+          productId: 3,
+          name: "정샘물 에센셜 스킨 누더 쿠션 14g + 리필 14g, 핑크라이트, 1세트",
+          totalStock: 100,
+          stock: 100,
+          eventStartDate: "2025-04-21T11:00:00",
+          eventEndDate: "2025-04-21T13:00:00",
+          eventStartTime: 11,
+          eventEndTime: 13,
+          price: 45000,
+          discount: 35,
+          thumbnailImage: [
+            {
+              productDetailId: 1,
+              imageUrl: "/images/jungsaemmool1.jpg",
+            },
+          ],
+          category: "Beauty",
+          details: [
+            {
+              productDetailId: 17,
+              imageUrl: "/images/jungsaemmool2.jpg",
             },
           ],
           likeCount: 0,
@@ -435,6 +435,82 @@ export const productHandlers = [
     `${BASE_URL}/api/product/:productId/:userPk`,
     ({ request, params }) => {
       const { productId } = params;
+
+      if (productId === "2") {
+        return HttpResponse.json({
+          productId: productId,
+          name: "SONY 노이즈 캔슬링 블루투스 헤드폰, 화이트, WH-CH720N",
+          totalStock: 50,
+          stock: 50,
+          eventStartDate: "2025-07-19T05:14:00",
+          eventEndDate: "2025-07-17T06:00:00",
+          eventStartTime: 13,
+          eventEndTime: 15,
+          price: 199000,
+          discount: 20,
+          thumbnailImage: [
+            {
+              productDetailId: 1,
+              imageUrl: "/images/sony1.jpg",
+            },
+            {
+              productDetailId: 2,
+              imageUrl: "/images/sony2.jpg",
+            },
+          ],
+          category: "Appliance",
+          details: [
+            {
+              productDetailId: 17,
+              imageUrl: "/images/sony_detail.jpg",
+            },
+          ],
+          likeCount: 30,
+          sellerId: 1,
+          ceoName: "김신",
+          companyName: "SONY",
+          businessNumber: 101010101,
+          companyPhone: 1043200933,
+          companyEmail: "306yyy@naver.com",
+          over: false,
+        });
+      }
+
+      if (productId === "3") {
+        return HttpResponse.json({
+          productId: 3,
+          name: "정샘물 에센셜 스킨 누더 쿠션 14g + 리필 14g, 핑크라이트, 1세트",
+          totalStock: 100,
+          stock: 100,
+          eventStartDate: "2025-04-21T11:00:00",
+          eventEndDate: "2025-04-21T13:00:00",
+          eventStartTime: 11,
+          eventEndTime: 13,
+          price: 45000,
+          discount: 35,
+          thumbnailImage: [
+            {
+              productDetailId: 1,
+              imageUrl: "/images/jungsaemmool1.jpg",
+            },
+          ],
+          category: "Beauty",
+          details: [
+            {
+              productDetailId: 17,
+              imageUrl: "/images/jungsaemmool2.jpg",
+            },
+          ],
+          likeCount: 0,
+          sellerId: 1,
+          ceoName: "정샘물",
+          companyName: "JEONSAMUL",
+          businessNumber: 20202022,
+          companyPhone: 56466355,
+          companyEmail: "mkwhwkdud@naver.com",
+          over: false,
+        });
+      }
 
       return HttpResponse.json({
         productId: productId,
