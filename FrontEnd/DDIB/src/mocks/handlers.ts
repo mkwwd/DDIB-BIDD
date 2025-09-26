@@ -324,7 +324,7 @@ export const handlers = [
       paymentMethod: "kakaopay",
     });
   }),
-  http.get("/api/order", ({ request }) => {
+  http.get(`${BASE_URL}/api/order`, ({ request }) => {
     return HttpResponse.json([
       {
         orderId: 0,
