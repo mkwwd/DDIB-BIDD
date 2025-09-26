@@ -9,8 +9,8 @@ export const MSWComponent = () => {
         process.env.NEXT_PUBLIC_API_MOCKING === "enabled"
       ) {
         try {
-          const module = await import("@/mocks/browser");
-          const worker = module.default;
+          const msModule = await import("@/mocks/browser");
+          const worker = msModule.default;
           await worker.start({ onUnhandledRequest: "bypass" });
           console.log("MSW is running");
           (window as any).mswReady = true;
