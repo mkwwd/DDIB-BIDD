@@ -2,6 +2,8 @@ import { http, HttpResponse } from "msw";
 
 const BASE_URL = process.env.NEXT_PUBLIC_API_URL!;
 let today = new Date();
+let twoHoursLater = new Date(today.getTime() + 2 * 60 * 60 * 1000);
+
 export const handlers = [
   http.get(`${BASE_URL}/`, ({}) => {
     return HttpResponse.text("Mock server is running!");
@@ -11,12 +13,12 @@ export const handlers = [
     return HttpResponse.json({
       todayNotOverProducts: [
         {
-          productId: 17,
+          productId: 3,
           name: "정샘물 에센셜 스킨 누더 쿠션 14g + 리필 14g, 핑크라이트, 1세트",
           totalStock: 100,
           stock: 100,
-          eventStartDate: "2025-04-21T11:00:00",
-          eventEndDate: "2025-04-21T13:00:00",
+          eventStartDate: today.toISOString(),
+          eventEndDate: twoHoursLater.toISOString(),
           eventStartTime: 11,
           eventEndTime: 13,
           price: 45000,
@@ -43,7 +45,7 @@ export const handlers = [
           over: false,
         },
         {
-          productId: 16,
+          productId: 2,
           name: "SONY 노이즈 캔슬링 블루투스 헤드폰, 화이트, WH-CH720N",
           totalStock: 50,
           stock: 50,
