@@ -12,6 +12,11 @@ export const MSWComponent = () => {
           const msModule = await import("@/mocks/browser");
           const worker = msModule.default;
           await worker.start({ onUnhandledRequest: "bypass" });
+          console.log(
+            "NEXT_PUBLIC_API_MOCKING" +
+              " " +
+              process.env.NEXT_PUBLIC_API_MOKCING
+          );
           console.log("MSW is running");
           (window as any).mswReady = true;
         } catch (err) {
