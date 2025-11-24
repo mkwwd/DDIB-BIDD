@@ -15,7 +15,7 @@ export const MSWComponent = () => {
           console.log(
             "NEXT_PUBLIC_API_MOCKING" +
               " " +
-              process.env.NEXT_PUBLIC_API_MOKCING
+              process.env.NEXT_PUBLIC_API_MOCKING
           );
           console.log("MSW is running");
           (window as any).mswReady = true;
