@@ -1,0 +1,47 @@
+.clockBg{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 70vmin;
+  height: 70vmin;
+}
+
+@keyframes rotate{
+  0% {transform: rotate(-.08turn);}
+  100% {transform: rotate(-1.08turn);}
+}
+
+.track{
+  width: 100%;
+  height: 100%;
+  border: solid rgb(255, 84, 84);
+  border-width: 3px 3px 1px 0;
+  border-top-color: transparent;
+  border-radius: 50%;
+  margin-left: -3px;
+  margin-top: -3px;
+  animation: rotate 3s infinite linear;
+}
+
+.hourHand{
+    position: absolute;
+    bottom: 50%;
+    left: 50%;
+    width: 2px;
+    height: 25%;
+    background-color: var(--scarlet);
+    transform-origin: bottom center;
+    transition: transform 1s linear
+}
+
+.minHand{
+    position: absolute;
+    bottom: 50%;
+    left: 50%;
+    width: 1px;
+    height: 40%;
+    background-color: var(--scarlet);
+    transform-origin: bottom center;
+    transition: transform 1s linear
+}
