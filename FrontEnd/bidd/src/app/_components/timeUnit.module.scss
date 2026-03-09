@@ -1,0 +1,33 @@
+.timeUnit{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.flipAnim{
+    font-size: 6rem;
+    font-weight: 500;
+    color: #f2dbdb;
+    text-shadow: 
+    0 0 10px rgba(225, 84, 84, 0.699), 0 0 20px rgba(225, 84, 84, 0.3);
+    line-height: 1;
+    animation: flipDown 0.5s ease-out;
+}
+
+@keyframes flipDown{
+    0% { 
+        transform : translateY(-20px);
+        opacity: 0;
+    }
+    100%{
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.timeUnit label {
+  font-size: 1.1rem;
+  color: #a0a0a0;
+  margin-top: 15px;
+  font-weight: 400;
+}

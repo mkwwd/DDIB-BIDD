@@ -5,8 +5,50 @@
   width: 100%;
 }
 
-.sectionOne {
+.sectionWrapper {
+  position: sticky;
+  top : 0;
   height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), 
+              transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(1.05);
+  z-index: 1;
 }
 
+.activeSection {
+  opacity: 1;
+  pointer-events: auto;
+  transform: scale(1);
+  z-index: 10;
+}
 
+.timer{
+  align-self:flex-end;
+  width: 60%;
+  height: 40%;
+  position: relative;
+  z-index: 20;
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 50px 80px;
+  margin-bottom: 5%;
+  text-align: center;
+  box-shadow: 0 0px 20px rgba(255, 93, 93, 0.5);
+}
+
+.timerDisplay{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
+  margin: 30px 0;
+}
