@@ -5,7 +5,7 @@
 }
 
 .flipAnim{
-    font-size: 6rem;
+    font-size: clamp(3rem, 1.5rem + 4.8vw, 6rem);
     font-weight: 500;
     color: #f2dbdb;
     text-shadow: 
@@ -26,8 +26,8 @@
 }
 
 .timeUnit label {
-  font-size: 1.1rem;
-  color: #a0a0a0;
-  margin-top: 15px;
-  font-weight: 400;
+    font-size: 1.1rem;
+    color: #a0a0a0;
+    margin-top: 15px;
+    font-weight: 400;
 }

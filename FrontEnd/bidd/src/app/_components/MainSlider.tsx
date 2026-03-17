@@ -81,15 +81,17 @@ const MainSlider: React.FC = () => {
 
   return (
     <div className={styles.container}>
-      <section className={getSectionClass(0)}>
+      <section className={`${getSectionClass(0)} ${styles.sectionOne}`}>
+        <div className={styles.bigTitle}>타임딜의 성공 &#039;BBID&#039;로 대여하세요</div>
         <Clock hourDeg={timeData.hourDeg} minDeg={timeData.minDeg} secDeg={timeData.secDeg}></Clock>
         <div className={styles.timer}>
+          <div className={styles.dealTitle}>TIME DEAL LIVE</div>
           <div className={styles.timerDisplay}>
             <TimeUnit value={timeData.hourLeft} label="Hours"></TimeUnit>
             <div className={styles.separator}>:</div>
-            <TimeUnit value={timeData.minLeft} label="Mins"></TimeUnit>
+            <TimeUnit value={timeData.minLeft} label="Minutes"></TimeUnit>
             <div className={styles.separator}>:</div>
-            <TimeUnit value={timeData.secLeft} label="Secs"></TimeUnit>
+            <TimeUnit value={timeData.secLeft} label="Seconds"></TimeUnit>
           </div>
         </div>
       </section>
