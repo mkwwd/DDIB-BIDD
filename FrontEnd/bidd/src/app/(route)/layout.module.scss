@@ -10,8 +10,9 @@
 }
 
 .nav {
-  z-index: 2;
-  position: absolute;
+  z-index: 10000;
+  position: fixed;
+  top: 0;
   width: 100%;
 }
 

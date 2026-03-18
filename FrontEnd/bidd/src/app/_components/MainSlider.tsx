@@ -54,6 +54,7 @@ const getTimeData = () => {
 
 const MainSlider: React.FC = () => {
 
+  const [isFlipped, setIsFlipped] = useState<boolean>(false);
   const [currentIndex, setCurrentIndex] = useState<number>(0);
   const [timeData, setTimeData] = useState<TimeDeg>(getTimeData);
 
@@ -67,12 +68,33 @@ const MainSlider: React.FC = () => {
       frameId = requestAnimationFrame(updateClock);
     };
 
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+      const vh = window.innerHeight;
+      const newIdx = Math.min(5, Math.floor(scrollY/vh));
+      setCurrentIndex(newIdx);
+
+      if(newIdx ===1 || newIdx === 2){
+        const progress = (scrollY - vh) / vh;
+        if(progress > 0.5){
+          setIsFlipped((prev) => {
+            return true;
+          });
+        }else{
+          setIsFlipped(false);
+        }
+      }
+    };
+
     updateClock();
+    window.addEventListener('scroll', handleScroll);
 
     return () => {
       cancelAnimationFrame(frameId);
+      window.removeEventListener('scroll', handleScroll);
     }
   },[])
+
 
   const getSectionClass = (idx:number) : string => {
     return `${styles.sectionWrapper} ${currentIndex === idx ? styles.activeSection : ''}`;
@@ -82,7 +104,7 @@ const MainSlider: React.FC = () => {
   return (
     <div className={styles.container}>
       <section className={`${getSectionClass(0)} ${styles.sectionOne}`}>
-        <div className={styles.bigTitle}>타임딜의 성공 &#039;BBID&#039;로 대여하세요</div>
+        {/* <div className={styles.bigTitle}>타임딜의 성공 &#039;BBID&#039;로 대여하세요</div> */}
         <Clock hourDeg={timeData.hourDeg} minDeg={timeData.minDeg} secDeg={timeData.secDeg}></Clock>
         <div className={styles.timer}>
           <div className={styles.dealTitle}>TIME DEAL LIVE</div>
@@ -95,10 +117,17 @@ const MainSlider: React.FC = () => {
           </div>
         </div>
       </section>
-      <section className={styles.sectionTwo}></section>
-      <section className={styles.sectionThree}></section>
-      <section className={styles.sectionFour}></section>
-      <section className={styles.sectionFive}></section>
+      <section className={`${getSectionClass(1)} ${styles.sectionTwo} ${currentIndex === 2 ? styles.activeSection : ''}`}>
+        <div className={styles.flipContainer}>
+          <div className={`${styles.flipCard} ${isFlipped ? styles.isFlipped : ''}`}>
+            <div className={`${styles.side} ${styles.front}`}>BIDD</div>
+            <div className={`${styles.side} ${styles.back}`}>DDIB</div>
+          </div>
+        </div>
+      </section>
+      <section className={`${getSectionClass(3)} ${styles.sectionThree}`}></section>
+      <section className={`${getSectionClass(4)} ${styles.sectionThree}`}></section>
+      <section className={`${getSectionClass(5)} ${styles.sectionThree}`}></section>
     </div>
   );
 };
