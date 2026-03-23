@@ -6,6 +6,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Clock from "./Clock";
 import TimeUnit from "./TimeUnit";
+import CardSection from "./CardSection";
 
 interface TimeDeg{
   hourDeg : number;
@@ -118,11 +119,22 @@ const MainSlider: React.FC = () => {
         </div>
       </section>
       <section className={`${getSectionClass(1)} ${styles.sectionTwo} ${currentIndex === 2 ? styles.activeSection : ''}`}>
-        <div className={styles.flipContainer}>
-          <div className={`${styles.flipCard} ${isFlipped ? styles.isFlipped : ''}`}>
-            <div className={`${styles.side} ${styles.front}`}>BIDD</div>
-            <div className={`${styles.side} ${styles.back}`}>DDIB</div>
+        <div className={styles.topArea}>
+          <div className={`${styles.secTitle} ${isFlipped ? styles.isFlipped : ''}`}>How It Works</div>
+          <div className={styles.flipContainer}>
+            <div className={`${styles.flipCard} ${isFlipped ? styles.isFlipped : ''}`}>
+              <div className={`${styles.side} ${styles.front}`}>BIDD</div>
+              <div className={`${styles.side} ${styles.back}`}>DDIB</div>
+            </div>
           </div>
+        </div>
+        <div className={styles.bottomArea}>
+            {!isFlipped ? ( 
+              <CardSection></CardSection>
+              ): (
+              <>
+              </>
+            )}
         </div>
       </section>
       <section className={`${getSectionClass(3)} ${styles.sectionThree}`}></section>

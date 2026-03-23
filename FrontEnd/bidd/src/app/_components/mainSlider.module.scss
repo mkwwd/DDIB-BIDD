@@ -11,9 +11,6 @@
   left: 0;
   height: 100vh;
   width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   overflow: hidden;
   transition: opacity 0.8s ease-in-out, transform 0.8s ease-in-out;
   opacity: 0;
@@ -32,6 +29,7 @@
 .sectionOne{
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
 .bigTitle{
@@ -39,12 +37,12 @@
 }
 
 .timer{
+  width: fit-content;
   z-index: 20;
   position: relative;
+  top: 55%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  margin: 350px 0 0;
   padding: 40px 5%;
   backdrop-filter: blur(5px);
   text-align: center;
@@ -78,21 +76,76 @@
     0 0 10px rgba(225, 84, 84, 0.699), 0 0 20px rgba(225, 84, 84, 0.3);
 }
 
+.topArea{
+  display: flex;
+  flex-direction: column;
+}
 
-.flipContainer { perspective: 2000px; }
+.secTitle{
+  margin: 100px 50px;
+  color: #f2dbdb;
+  text-shadow: 
+    0 0 10px rgba(225, 84, 84, 0.699), 0 0 20px rgba(225, 84, 84, 0.3);
+  font-size: clamp(2rem, 1.5rem + 4.8vw, 4rem);
+  &.isFlipped{
+    color: #FF5454;
+    text-shadow: 0 0 10px rgba(255, 84, 84, 0.8), /* 텍스트 주변을 꽉 채우는 빛 */
+    0 0 25px rgba(255, 84, 84, 0.4), /* 부드러운 외각 아우라 */
+    2px 2px 4px rgba(0, 0, 0, 0.2);
+  }
+}
+
+.flipContainer { 
+  perspective: 2000px; 
+  position: absolute;
+  top: 15%;
+  left: 10%;
+  width: fit-content;
+  height: auto;
+}
+
 .flipCard {
-  width: 600px; height: 200px;
-  transform-style: preserve-3d;
-  transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   position: relative;
+  top: 5%;
+  width: fit-content; 
+  height: 200px;
+  transform-style: preserve-3d;
+  transition: transform 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+
+  &.isFlipped { 
+  transform: rotateY(180deg); 
+  }
+}
+
+.side {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden; 
+  -webkit-backface-visibility: hidden; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: clamp(3rem, 2.6418rem + 3.5821vw, 6rem);;
+  font-weight: 900;
+  white-space: nowrap;
+}
+
+.front { 
+  color: #FF5454; 
   transform: rotateY(0deg);
 }
-.isFlipped { transform: rotateY(180deg); }
-.side {
-  position: absolute; width: 100%; height: 100%;
-  backface-visibility: hidden;
-  display: flex; justify-content: center; align-items: center;
-  font-size: 10rem; font-weight: 900;
+
+.back { 
+  color: white; 
+  transform: rotateY(180deg); 
 }
-.front { color: #FF5454; transform: rotateY(0deg);}
-.back { color: white; transform: rotateY(180deg); }
+
+.bottomArea{
+  width: 100%;
+  height: 60%;
+  display: flex;
+  justify-content: center;
+}
